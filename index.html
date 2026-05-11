@@ -2010,7 +2010,14 @@ function compute(){
   sendAnalytics(analyticsData);
   markSessionCompleted();
 
-  renderResult(scored);
+  try {
+    renderResult(scored);
+  } catch(e) {
+    const rs = document.getElementById('resultScreen');
+    rs.innerHTML = `<div style="padding:40px;text-align:center;color:red;font-size:14px">エラーが発生しました: ${e.message}<br><pre style="text-align:left;font-size:11px;margin-top:12px">${e.stack}</pre></div>`;
+    rs.style.display = 'block';
+    console.error('renderResult error:', e);
+  }
 }
 
 // 単純ハッシュ（jitter用）
