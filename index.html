@@ -1222,16 +1222,11 @@ const Qs = [
     A:{ico:'🌱', label:'持ちたい、根を張りたい', sub:'長く住んで馴染みたい'},
     B:{ico:'🎲', label:'縛られず自由でいたい', sub:'いつでも動ける状態がいい'},
   },
-  // ── 補助情報 ────────────
   {
-    id:'lifestyle', cat:'あなたのこと', isLifestyle:true,
-    text:'今のライフスタイルを教えてください',
-    opts:[
-      {ico:'🎓', main:'学生・院生', sub:'学業とバイトが軸', val:'student'},
-      {ico:'💼', main:'一人暮らし社会人', sub:'仕事が生活の中心', val:'worker'},
-      {ico:'👫', main:'カップル・同棲', sub:'二人で暮らす（予定）', val:'couple'},
-      {ico:'👨‍👩‍👧', main:'ファミリー', sub:'子育て・教育環境が大事', val:'family'},
-    ],
+    id:'living_style', cat:'あなたのこと',
+    text:'東京での暮らし方、どちらに近い？',
+    A:{ico:'🏙️', label:'都心エリアで利便性を最優先', sub:'駅近・徒歩圏で生活が完結する'},
+    B:{ico:'🌿', label:'少し外れて広さ・静けさを', sub:'ゆとりある空間と緑が大事'},
   },
 ];
 
@@ -1259,7 +1254,7 @@ const PEOPLE = [
     bad:{e:'😅',name:'亀有人',d:'遠すぎてお互いの存在を知らない'},
     tags:['カフェ','インスタ','夜型','目黒川','ハイセンス'],
     spots:[{ico:'☕',name:'サイドウォークコーヒースタンド',desc:'目黒川沿いのスペシャルティカフェ'},{ico:'🌸',name:'目黒川沿い遊歩道',desc:'桜の名所、散歩の定番ルート'},{ico:'📚',name:'COW BOOKS',desc:'松浦弥太郎プロデュースの古書店'}],
-    ideal:{friday_night:-2,new_shop:-2,weekend_morning:0,trouble_alone:-1,money_use:-1,decision_basis:-2,core_need:-2,community_depth:0,coffee_style:-2,crowded:0,praise:-1,irritation:-1,new_hobby:1,room_state:1,social_style:-1,decision_speed:-1,future_vision:-2,stress_escape:0,belonging:1},
+    ideal:{friday_night:-2,new_shop:-2,weekend_morning:0,trouble_alone:-1,money_use:-1,decision_basis:-2,core_need:-2,community_depth:0,coffee_style:-2,crowded:0,praise:-1,irritation:-1,new_hobby:1,room_state:1,social_style:-1,decision_speed:-1,future_vision:-2,stress_escape:0,belonging:1,living_style:-1},
     lifeAffinity:{student:0.6,worker:1.0,couple:1.0,family:0.5}
   },
   {
@@ -1282,7 +1277,7 @@ const PEOPLE = [
     bad:{e:'🎰',name:'池袋人',d:'価値観の軸が正反対'},
     tags:['蔦屋','洗練','静か','大人','アート'],
     spots:[{ico:'📚',name:'代官山 蔦屋書店',desc:'半日過ごせる大人のための書店'},{ico:'🍽️',name:'ヒルサイドテラス',desc:'上質な時間が流れる複合施設'},{ico:'🧥',name:'OKURA',desc:'藍染めアイテムの名店'}],
-    ideal:{friday_night:1,new_shop:1,weekend_morning:-1,trouble_alone:1,money_use:-1,decision_basis:-1,core_need:-1,community_depth:1,coffee_style:-2,crowded:-2,praise:-1,irritation:-1,new_hobby:-1,room_state:1,social_style:1,decision_speed:1,future_vision:-1,stress_escape:1,belonging:0},
+    ideal:{friday_night:1,new_shop:1,weekend_morning:-1,trouble_alone:1,money_use:-1,decision_basis:-1,core_need:-1,community_depth:1,coffee_style:-2,crowded:-2,praise:-1,irritation:-1,new_hobby:-1,room_state:1,social_style:1,decision_speed:1,future_vision:-1,stress_escape:1,belonging:0,living_style:-2},
     lifeAffinity:{student:0.4,worker:1.0,couple:1.0,family:0.7}
   },
   {
@@ -1305,7 +1300,7 @@ const PEOPLE = [
     bad:{e:'💼',name:'丸の内人',d:'存在を認識し合っていない'},
     tags:['ライブ','古着','サブカル','自由','夜型'],
     spots:[{ico:'🎸',name:'下北沢SHELTER',desc:'老舗ライブハウス、ロックの聖地'},{ico:'👗',name:'シモキタ古着屋街',desc:'ハイセンスな古着店が点在'},{ico:'🎬',name:'トリウッド',desc:'インディー映画好きの隠れ家'}],
-    ideal:{friday_night:-2,new_shop:-2,weekend_morning:2,trouble_alone:2,money_use:-2,decision_basis:-2,core_need:-1,community_depth:1,coffee_style:1,crowded:0,praise:0,irritation:2,new_hobby:2,room_state:2,social_style:0,decision_speed:-1,future_vision:0,stress_escape:2,belonging:2},
+    ideal:{friday_night:-2,new_shop:-2,weekend_morning:2,trouble_alone:2,money_use:-2,decision_basis:-2,core_need:-1,community_depth:1,coffee_style:1,crowded:0,praise:0,irritation:2,new_hobby:2,room_state:2,social_style:0,decision_speed:-1,future_vision:0,stress_escape:2,belonging:2,living_style:0},
     lifeAffinity:{student:1.0,worker:0.9,couple:0.6,family:0.3}
   },
   {
@@ -1328,7 +1323,7 @@ const PEOPLE = [
     bad:{e:'😳',name:'白金台人',d:'キャラが違いすぎて会話が続かない'},
     tags:['居酒屋','夜型','コスパ','賑やか','若者'],
     spots:[{ico:'🍻',name:'三角地帯',desc:'三茶の象徴、昭和の飲み屋街'},{ico:'🌳',name:'世田谷公園',desc:'地元民が集まる憩いの公園'},{ico:'🏙️',name:'キャロットタワー',desc:'三茶のランドマーク'}],
-    ideal:{friday_night:-2,new_shop:-2,weekend_morning:2,trouble_alone:-2,money_use:-2,decision_basis:-1,core_need:-1,community_depth:-1,coffee_style:1,crowded:2,praise:-1,irritation:1,new_hobby:2,room_state:1,social_style:-2,decision_speed:-2,future_vision:-1,stress_escape:2,belonging:2},
+    ideal:{friday_night:-2,new_shop:-2,weekend_morning:2,trouble_alone:-2,money_use:-2,decision_basis:-1,core_need:-1,community_depth:-1,coffee_style:1,crowded:2,praise:-1,irritation:1,new_hobby:2,room_state:1,social_style:-2,decision_speed:-2,future_vision:-1,stress_escape:2,belonging:2,living_style:-1},
     lifeAffinity:{student:1.0,worker:1.0,couple:0.7,family:0.5}
   },
   {
@@ -1351,7 +1346,7 @@ const PEOPLE = [
     bad:{e:'😅',name:'高円寺人',d:'精神的にも物理的にも別の惑星'},
     tags:['ワイン','大人','洗練','ビジネス','グルメ'],
     spots:[{ico:'🍷',name:'恵比寿ガーデンプレイス',desc:'大人のランドマーク'},{ico:'🍽️',name:'ジョエル・ロブション',desc:'星付きフレンチの殿堂'},{ico:'🍺',name:'ヱビスビール記念館',desc:'ヱビスビール発祥の地'}],
-    ideal:{friday_night:-1,new_shop:1,weekend_morning:-1,trouble_alone:-1,money_use:-2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:-1,crowded:-1,praise:-2,irritation:-1,new_hobby:-1,room_state:-1,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:1},
+    ideal:{friday_night:-1,new_shop:1,weekend_morning:-1,trouble_alone:-1,money_use:-2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:-1,crowded:-1,praise:-2,irritation:-1,new_hobby:-1,room_state:-1,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:1,living_style:-2},
     lifeAffinity:{student:0.3,worker:1.0,couple:1.0,family:0.7}
   },
   {
@@ -1374,7 +1369,7 @@ const PEOPLE = [
     bad:{e:'🥂',name:'恵比寿人',d:'お互い「なんか違う」と感じている'},
     tags:['古着','自由','サブカル','昼飲み','阿波踊り'],
     spots:[{ico:'🎺',name:'高円寺純情商店街',desc:'昭和レトロな活気ある商店街'},{ico:'👗',name:'コーエンジ古着屋街',desc:'東京有数の古着文化の中心'},{ico:'🍶',name:'高円寺阿波おどり',desc:'毎年8月の一大イベント'}],
-    ideal:{friday_night:-1,new_shop:-2,weekend_morning:2,trouble_alone:0,money_use:-2,decision_basis:-2,core_need:-1,community_depth:-1,coffee_style:1,crowded:0,praise:0,irritation:2,new_hobby:2,room_state:2,social_style:-1,decision_speed:-2,future_vision:1,stress_escape:2,belonging:2},
+    ideal:{friday_night:-1,new_shop:-2,weekend_morning:2,trouble_alone:0,money_use:-2,decision_basis:-2,core_need:-1,community_depth:-1,coffee_style:1,crowded:0,praise:0,irritation:2,new_hobby:2,room_state:2,social_style:-1,decision_speed:-2,future_vision:1,stress_escape:2,belonging:2,living_style:-1},
     lifeAffinity:{student:1.0,worker:0.9,couple:0.7,family:0.4}
   },
   {
@@ -1397,7 +1392,7 @@ const PEOPLE = [
     bad:{e:'🌊',name:'豊洲人',d:'新しすぎて落ち着かない'},
     tags:['純喫茶','古本','ジャズ','商店街','のんびり'],
     spots:[{ico:'🎋',name:'阿佐谷七夕まつり',desc:'毎年8月の風物詩'},{ico:'🎷',name:'阿佐ヶ谷ジャズストリート',desc:'街中に音楽が溢れる秋イベント'},{ico:'📚',name:'書楽',desc:'地元に愛される老舗書店'}],
-    ideal:{friday_night:2,new_shop:0,weekend_morning:2,trouble_alone:1,money_use:-2,decision_basis:-2,core_need:2,community_depth:-1,coffee_style:0,crowded:-2,praise:1,irritation:2,new_hobby:-1,room_state:0,social_style:1,decision_speed:2,future_vision:2,stress_escape:0,belonging:-2},
+    ideal:{friday_night:2,new_shop:0,weekend_morning:2,trouble_alone:1,money_use:-2,decision_basis:-2,core_need:2,community_depth:-1,coffee_style:0,crowded:-2,praise:1,irritation:2,new_hobby:-1,room_state:0,social_style:1,decision_speed:2,future_vision:2,stress_escape:0,belonging:-2,living_style:1},
     lifeAffinity:{student:0.8,worker:0.8,couple:0.9,family:1.0}
   },
   {
@@ -1420,7 +1415,7 @@ const PEOPLE = [
     bad:{e:'😓',name:'六本木人',d:'価値観の軸が全然違う'},
     tags:['クラフト','コーヒー','自転車','独立系','ハンドメイド'],
     spots:[{ico:'☕',name:'ダンデライオン・チョコレート',desc:'クラフトチョコレートの名店'},{ico:'📔',name:'カキモリ',desc:'オーダーメイドノート専門店'},{ico:'🌊',name:'隅田川テラス',desc:'自転車散歩の特等席'}],
-    ideal:{friday_night:1,new_shop:0,weekend_morning:-1,trouble_alone:1,money_use:1,decision_basis:-1,core_need:-1,community_depth:0,coffee_style:-2,crowded:-1,praise:-1,irritation:2,new_hobby:0,room_state:2,social_style:1,decision_speed:2,future_vision:1,stress_escape:0,belonging:-1},
+    ideal:{friday_night:1,new_shop:0,weekend_morning:-1,trouble_alone:1,money_use:1,decision_basis:-1,core_need:-1,community_depth:0,coffee_style:-2,crowded:-1,praise:-1,irritation:2,new_hobby:0,room_state:2,social_style:1,decision_speed:2,future_vision:1,stress_escape:0,belonging:-1,living_style:-1},
     lifeAffinity:{student:0.6,worker:1.0,couple:1.0,family:0.6}
   },
   {
@@ -1443,7 +1438,7 @@ const PEOPLE = [
     bad:{e:'🎰',name:'歌舞伎町人',d:'存在を認識し合っていない'},
     tags:['コーヒー','アート','自転車','早起き','静か'],
     spots:[{ico:'☕',name:'ブルーボトルコーヒー 清澄白河',desc:'コーヒー聖地の起点'},{ico:'🎨',name:'東京都現代美術館',desc:'現代アートの殿堂'},{ico:'🌿',name:'清澄庭園',desc:'朝散歩の定番ルート'}],
-    ideal:{friday_night:2,new_shop:1,weekend_morning:-2,trouble_alone:2,money_use:-1,decision_basis:-1,core_need:0,community_depth:1,coffee_style:-2,crowded:-2,praise:0,irritation:2,new_hobby:-1,room_state:0,social_style:2,decision_speed:2,future_vision:1,stress_escape:0,belonging:0},
+    ideal:{friday_night:2,new_shop:1,weekend_morning:-2,trouble_alone:2,money_use:-1,decision_basis:-1,core_need:0,community_depth:1,coffee_style:-2,crowded:-2,praise:0,irritation:2,new_hobby:-1,room_state:0,social_style:2,decision_speed:2,future_vision:1,stress_escape:0,belonging:0,living_style:-1},
     lifeAffinity:{student:0.5,worker:1.0,couple:1.0,family:0.7}
   },
   {
@@ -1466,7 +1461,7 @@ const PEOPLE = [
     bad:{e:'😶',name:'汐留人',d:'別の惑星に住んでると思っている'},
     tags:['猫','下町','レトロ','骨董','路地裏'],
     spots:[{ico:'🐱',name:'谷中銀座商店街',desc:'夕やけだんだんと猫の街'},{ico:'🎨',name:'SCAI THE BATHHOUSE',desc:'銭湯をリノベしたギャラリー'},{ico:'🍡',name:'岡野栄泉',desc:'老舗の豆大福'}],
-    ideal:{friday_night:2,new_shop:1,weekend_morning:0,trouble_alone:1,money_use:-1,decision_basis:-2,core_need:2,community_depth:-2,coffee_style:1,crowded:-2,praise:1,irritation:2,new_hobby:-1,room_state:2,social_style:1,decision_speed:2,future_vision:2,stress_escape:0,belonging:-2},
+    ideal:{friday_night:2,new_shop:1,weekend_morning:0,trouble_alone:1,money_use:-1,decision_basis:-2,core_need:2,community_depth:-2,coffee_style:1,crowded:-2,praise:1,irritation:2,new_hobby:-1,room_state:2,social_style:1,decision_speed:2,future_vision:2,stress_escape:0,belonging:-2,living_style:1},
     lifeAffinity:{student:0.8,worker:0.8,couple:0.9,family:1.0}
   },
   {
@@ -1489,7 +1484,7 @@ const PEOPLE = [
     bad:{e:'😳',name:'歌舞伎町人',d:'方向性が全然違う'},
     tags:['公園','ライブ','商店街','全世代','バランス型'],
     spots:[{ico:'🚣',name:'井の頭恩賜公園',desc:'ボート・桜・散歩の名所'},{ico:'🍻',name:'ハーモニカ横丁',desc:'昭和レトロな飲み屋街'},{ico:'🎵',name:'吉祥寺CLUB SEATA',desc:'ライブハウスの老舗'}],
-    ideal:{friday_night:0,new_shop:-1,weekend_morning:-1,trouble_alone:0,money_use:-1,decision_basis:-1,core_need:1,community_depth:-1,coffee_style:0,crowded:0,praise:0,irritation:1,new_hobby:1,room_state:1,social_style:0,decision_speed:0,future_vision:0,stress_escape:-1,belonging:-2},
+    ideal:{friday_night:0,new_shop:-1,weekend_morning:-1,trouble_alone:0,money_use:-1,decision_basis:-1,core_need:1,community_depth:-1,coffee_style:0,crowded:0,praise:0,irritation:1,new_hobby:1,room_state:1,social_style:0,decision_speed:0,future_vision:0,stress_escape:-1,belonging:-2,living_style:1},
     lifeAffinity:{student:0.8,worker:0.9,couple:1.0,family:1.0}
   },
   {
@@ -1512,7 +1507,7 @@ const PEOPLE = [
     bad:{e:'🎰',name:'池袋人',d:'価値観の軸が根本から違う'},
     tags:['大学','読書','静か','教育','歴史'],
     spots:[{ico:'🎓',name:'東京大学本郷キャンパス',desc:'赤門・三四郎池・安田講堂'},{ico:'🌸',name:'根津神社',desc:'つつじ祭りの名所'},{ico:'📚',name:'六義園',desc:'静かで知的な日本庭園'}],
-    ideal:{friday_night:2,new_shop:1,weekend_morning:-1,trouble_alone:1,money_use:-2,decision_basis:1,core_need:1,community_depth:-1,coffee_style:-1,crowded:-2,praise:1,irritation:1,new_hobby:-2,room_state:-1,social_style:1,decision_speed:2,future_vision:1,stress_escape:1,belonging:-2},
+    ideal:{friday_night:2,new_shop:1,weekend_morning:-1,trouble_alone:1,money_use:-2,decision_basis:1,core_need:1,community_depth:-1,coffee_style:-1,crowded:-2,praise:1,irritation:1,new_hobby:-2,room_state:-1,social_style:1,decision_speed:2,future_vision:1,stress_escape:1,belonging:-2,living_style:0},
     lifeAffinity:{student:1.0,worker:0.8,couple:0.9,family:1.0}
   },
   {
@@ -1535,7 +1530,7 @@ const PEOPLE = [
     bad:{e:'🐱',name:'谷中人',d:'古いもの好きとは話が噛み合わない'},
     tags:['タワマン','海','新しい','共働き','広い'],
     spots:[{ico:'🏪',name:'豊洲市場',desc:'新・築地の拠点'},{ico:'🛒',name:'ららぽーと豊洲',desc:'ファミリー向け巨大モール'},{ico:'🌊',name:'豊洲ぐるり公園',desc:'運河沿い絶景のランニングコース'}],
-    ideal:{friday_night:1,new_shop:2,weekend_morning:-1,trouble_alone:-1,money_use:2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:2,crowded:1,praise:-2,irritation:-2,new_hobby:-1,room_state:-2,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:-1},
+    ideal:{friday_night:1,new_shop:2,weekend_morning:-1,trouble_alone:-1,money_use:2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:2,crowded:1,praise:-2,irritation:-2,new_hobby:-1,room_state:-2,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:-1,living_style:-1},
     lifeAffinity:{student:0.3,worker:0.9,couple:1.0,family:1.0}
   },
   {
@@ -1558,7 +1553,7 @@ const PEOPLE = [
     bad:{e:'🥂',name:'恵比寿人',d:'価値観の中心が違いすぎる'},
     tags:['農業','のんびり','コスパ','自然','ファミリー'],
     spots:[{ico:'🌳',name:'光が丘公園',desc:'広大な緑のオアシス'},{ico:'🎨',name:'練馬区立美術館',desc:'企画展が評判'},{ico:'🌻',name:'区内の農業体験',desc:'都内屈指の農業地帯'}],
-    ideal:{friday_night:2,new_shop:1,weekend_morning:0,trouble_alone:1,money_use:2,decision_basis:1,core_need:2,community_depth:-2,coffee_style:2,crowded:-2,praise:1,irritation:-1,new_hobby:1,room_state:0,social_style:1,decision_speed:0,future_vision:2,stress_escape:-2,belonging:-2},
+    ideal:{friday_night:2,new_shop:1,weekend_morning:0,trouble_alone:1,money_use:2,decision_basis:1,core_need:2,community_depth:-2,coffee_style:2,crowded:-2,praise:1,irritation:-1,new_hobby:1,room_state:0,social_style:1,decision_speed:0,future_vision:2,stress_escape:-2,belonging:-2,living_style:2},
     lifeAffinity:{student:0.6,worker:0.8,couple:0.9,family:1.0}
   },
   {
@@ -1581,7 +1576,7 @@ const PEOPLE = [
     bad:{e:'🎸',name:'下北沢人',d:'効率より感性を重視する人とは話が合わない'},
     tags:['新幹線','出張','効率','ビジネス','アクセス'],
     spots:[{ico:'🚄',name:'品川駅',desc:'新幹線・羽田・山手線のハブ'},{ico:'🍺',name:'品川インターシティ',desc:'ビジネスパーソンの聖地'},{ico:'🌊',name:'天王洲アイル',desc:'運河沿いのおしゃれゾーン'}],
-    ideal:{friday_night:-1,new_shop:2,weekend_morning:-2,trouble_alone:-1,money_use:2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:2,crowded:0,praise:-2,irritation:-2,new_hobby:-2,room_state:-1,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:1},
+    ideal:{friday_night:-1,new_shop:2,weekend_morning:-2,trouble_alone:-1,money_use:2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:2,crowded:0,praise:-2,irritation:-2,new_hobby:-2,room_state:-1,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:1,living_style:-2},
     lifeAffinity:{student:0.3,worker:1.0,couple:0.8,family:0.6}
   },
   {
@@ -1604,7 +1599,7 @@ const PEOPLE = [
     bad:{e:'🥂',name:'港区人',d:'価値観の軸が根本から違う'},
     tags:['高尾山','自然','コスパ','独立心','広い部屋'],
     spots:[{ico:'🏔️',name:'高尾山',desc:'ミシュラン三ツ星の名山'},{ico:'🌸',name:'陣馬山',desc:'ハイキングの隠れた名所'},{ico:'🎡',name:'東京サマーランド',desc:'夏のお楽しみスポット'}],
-    ideal:{friday_night:1,new_shop:0,weekend_morning:-2,trouble_alone:1,money_use:2,decision_basis:1,core_need:2,community_depth:-1,coffee_style:1,crowded:-2,praise:0,irritation:-1,new_hobby:2,room_state:0,social_style:1,decision_speed:1,future_vision:2,stress_escape:-2,belonging:-1},
+    ideal:{friday_night:1,new_shop:0,weekend_morning:-2,trouble_alone:1,money_use:2,decision_basis:1,core_need:2,community_depth:-1,coffee_style:1,crowded:-2,praise:0,irritation:-1,new_hobby:2,room_state:0,social_style:1,decision_speed:1,future_vision:2,stress_escape:-2,belonging:-1,living_style:2},
     lifeAffinity:{student:0.7,worker:0.7,couple:0.9,family:1.0}
   },
 ];
@@ -1758,29 +1753,6 @@ function renderQ(){
   const hasAnswer = currentVal !== undefined;
 
   // ライフステージ（最終問のみ従来型4択）
-  if(q.isLifestyle){
-    const opts = q.opts.map(o=>`
-      <button class="opt ${currentVal===o.val?'on':''}" onclick="pickLifestyle('${q.id}','${o.val}',this)">
-        <span class="opt-ico">${o.ico}</span>
-        <div class="opt-main">${o.main}</div>
-        <div class="opt-sub">${o.sub}</div>
-      </button>`).join('');
-    document.getElementById('questionArea').innerHTML=`
-      <div class="q-card">
-        <div class="q-num">Q${step+1} / ${total}</div>
-        <div class="q-cat">${q.cat}</div>
-        <div class="q-text">${q.text}</div>
-        <div class="opts g2">${opts}</div>
-        <div class="nav">
-          <button class="btn-bk" onclick="goBack()" style="${step===0?'visibility:hidden':''}">← 戻る</button>
-          <button class="btn-nx" id="btnNx" onclick="goNext()" ${!hasAnswer?'disabled':''}>
-            ${last?'判定する 🎉':'次の質問へ →'}
-          </button>
-        </div>
-      </div>`;
-    return;
-  }
-
   // 2択×5段階スライダー
   const sliderVal = hasAnswer ? currentVal : null;
   const dotActiveClass = (v)=> sliderVal===v ? 'slider-dot active' : 'slider-dot';
@@ -1847,19 +1819,6 @@ function pickSlider(qid, val){
   }
 }
 
-function pickLifestyle(qid, val, el){
-  const wasAnswered = ans[qid] !== undefined;
-  ans[qid] = val;
-  if(!wasAnswered && lastQuestionShownAt){
-    questionTimings[qid] = Date.now() - lastQuestionShownAt;
-  }
-  document.querySelectorAll('.opt').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
-  document.getElementById('btnNx').removeAttribute('disabled');
-  if(!wasAnswered){
-    setTimeout(()=>autoAdvance(), 420);
-  }
-}
 
 // ── オート遷移（フェード＋次へ＋スクロール） ──
 function autoAdvance(){
@@ -1966,13 +1925,14 @@ const Q_WEIGHTS = {
   future_vision:   8,  // 価値観 - ライフスタイル核
   stress_escape:   5,  // 価値観 - 回復場所
   belonging:       6,  // 価値観 - 定住志向
+  living_style:    6,  // あなたのこと - 都心 vs 郊外
 };
 
 // ══════════════════════════════════════════════
 // スコア計算（重み付き距離ベース、94や96に固まらない分散型）
 // ══════════════════════════════════════════════
 function compute(){
-  const sliderKeys = Qs.filter(q=>!q.isLifestyle).map(q=>q.id);
+  const sliderKeys = Qs.map(q=>q.id);
 
   const scored = PEOPLE.map(p=>{
     // 各質問に重みを掛けた距離スコア
@@ -1997,10 +1957,6 @@ function compute(){
     });
     // 0〜100のスコアに正規化
     let pts = (totalScore / maxPossible) * 100;
-
-    // ライフステージ重み（±10pt）
-    const lifeWeight = p.lifeAffinity[ans.lifestyle] !== undefined ? p.lifeAffinity[ans.lifestyle] : 0.8;
-    pts = pts * (0.85 + 0.15 * lifeWeight);
 
     // ごく僅かな差でも順位が変わるよう、個体バラツキ係数
     // （0.3pt程度のランダム性：同順位の出現を減らす）
@@ -2130,7 +2086,7 @@ function buildAffiliCards(m){
       style="--ac:${c.color}" onclick="trackAffili('${c.name}','${m.name}')">
       <span class="affili-ico">${c.ico}</span>
       <div class="affili-body">
-        <div class="affili-name">${c.name}<span class="affili-badge">PR</span></div>
+        <div class="affili-name">${c.name}</div>
         <div class="affili-desc">${c.desc}</div>
       </div>
       <span class="affili-cta">${c.cta}</span>
@@ -2254,7 +2210,7 @@ function renderResult(sorted){
 
   <!-- アフィリエイトセクション（タイプ連動） -->
   <div class="affili-section">
-    <div class="affili-head">SPONSORED</div>
+    <div class="affili-head">おすすめサービス</div>
     <div class="affili-cards">
       ${buildAffiliCards(m)}
     </div>
