@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東京人診断 — あなたは何人？ | 東京16エリアの人格タイプ診断</title>
+<meta name="description" content="あなたはどの東京に生きる人間か？中目黒人・下北沢人・蔵前人など16タイプから、MBTI風の20問診断で判定。無料・登録不要。">
+<meta name="keywords" content="東京,診断,人格,MBTI,中目黒,下北沢,住みたい街,街診断,性格診断">
+<meta name="author" content="Tokyo Match Project">
+<meta name="robots" content="index, follow">
+
+<!-- ═══ OGP / Twitter Card ═══ -->
+<meta property="og:title" content="東京人診断 — あなたは何人？">
+<meta property="og:description" content="あなたはどの東京に生きる人間か？16タイプから、MBTI風20問で判定。中目黒人？下北沢人？それとも八王子人？">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://soma-endo.github.io/tokyo-match/">
+<meta property="og:image" content="https://soma-endo.github.io/tokyo-match/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="東京人診断">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="東京人診断 — あなたは何人？">
+<meta name="twitter:description" content="あなたはどの東京に生きる人間か？16タイプから、MBTI風20問で判定。">
+<meta name="twitter:image" content="https://soma-endo.github.io/tokyo-match/ogp.png">
+<link rel="canonical" href="https://soma-endo.github.io/tokyo-match/">
+<meta name="theme-color" content="#d4380d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🗼%3C/text%3E%3C/svg%3E">
+
+<!-- ═══ 構造化データ（Google検索でリッチ表示） ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "東京人診断",
+  "description": "あなたはどの東京に生きる人間か？中目黒人・下北沢人など16タイプから、MBTI風の20問診断で判定。無料・登録不要。",
+  "url": "https://soma-endo.github.io/tokyo-match/",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "author": { "@type": "Organization", "name": "Tokyo Match Project" },
+  "inLanguage": "ja"
+}
+</script>
+
+<!-- ═══ Google AdSense ═══ -->
+<!-- 【設定方法】AdSense審査通過後、以下のコメントアウトを外してca-pub-XXXXXXXを自分のIDに変更 -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@300;400;700;900&family=Noto+Serif+JP:wght@400;700&family=M+PLUS+Rounded+1c:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f3ec;
+  --ink:#1a1208;
+  --card:#ffffff;
+  --border:#e2d9ca;
+  --muted:#9a9088;
+  --accent:#d4380d;   /* 朱 */
+  --accent2:#1d7a5f;  /* 緑青 */
+  --accent3:#1a4a8a;  /* 藍 */
+  --gold:#c8922a;     /* 金 */
+  --light:#faf7f0;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── 和柄背景 ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(212,56,13,.05) 0, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(29,122,95,.05) 0, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(200,146,42,.03) 0, transparent 60%);
+}
+/* 細かい和柄ドット */
+body::after{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle, rgba(26,18,8,.04) 1px, transparent 1px);
+  background-size:24px 24px;
+}
+
+.wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:32px 18px 80px}
+
+/* ════════════ HEADER ════════════ */
+.site-header{text-align:center;margin-bottom:40px}
+.eyebrow{
+  display:inline-block;
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  font-size:9px;letter-spacing:6px;font-weight:700;
+  background:var(--ink);color:#fff;
+  padding:5px 18px;border-radius:2px;
+  margin-bottom:16px;
+}
+.logo-wrap{position:relative;display:inline-block;margin-bottom:8px}
+.logo{
+  font-family:'Dela Gothic One',cursive;
+  font-size:clamp(52px,13vw,82px);
+  line-height:1;letter-spacing:-2px;
+  color:var(--ink);
+}
+.logo-accent{
+  color:var(--accent);
+  position:relative;
+}
+.logo-accent::after{
+  content:'';
+  position:absolute;bottom:-4px;left:0;right:0;
+  height:4px;background:var(--accent);border-radius:2px;
+}
+.logo-sub{
+  font-family:'Noto Serif JP',serif;
+  font-size:13px;color:var(--muted);
+  letter-spacing:3px;margin-top:10px;
+}
+
+/* ════════════ NAV TABS ════════════ */
+.nav-tabs{
+  display:flex;gap:0;margin-bottom:32px;
+  border:2px solid var(--ink);border-radius:14px;overflow:hidden;
+}
+.tab-btn{
+  flex:1;padding:12px 8px;
+  background:none;border:none;
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:12px;font-weight:700;
+  color:var(--muted);cursor:pointer;
+  transition:all .2s;letter-spacing:1px;
+  border-right:1.5px solid var(--border);
+}
+.tab-btn:last-child{border-right:none}
+.tab-btn.active{background:var(--ink);color:#fff}
+.tab-btn:hover:not(.active){background:var(--light)}
+
+/* ════════════ START ════════════ */
+.start-card{
+  background:var(--card);
+  border:2.5px solid var(--ink);
+  border-radius:24px;
+  padding:52px 28px 40px;
+  box-shadow:6px 6px 0 var(--ink);
+  text-align:center;
+  animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.92) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}
+
+.start-face{font-size:92px;display:block;margin-bottom:22px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.12))}
+.start-h{
+  font-family:'Dela Gothic One',cursive;
+  font-size:clamp(26px,6vw,36px);
+  line-height:1.2;
+  margin-bottom:10px;
+}
+.start-tagline{
+  font-size:14px;color:var(--muted);
+  letter-spacing:1px;
+  margin-bottom:38px;
+  font-family:'Noto Serif JP',serif;
+}
+.btn-start{
+  display:block;width:100%;padding:20px;
+  background:var(--accent);color:#fff;border:none;border-radius:12px;
+  font-family:'Dela Gothic One',cursive;font-size:20px;letter-spacing:3px;
+  cursor:pointer;
+  box-shadow:4px 4px 0 var(--ink);
+  transition:all .15s;
+  margin-bottom:16px;
+}
+.btn-start:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-start:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.start-note{
+  font-size:11px;color:var(--muted);
+  letter-spacing:1px;
+  font-family:'M PLUS Rounded 1c',sans-serif;
+}
+
+/* ════════════ TYPES PAGE ════════════ */
+#typesPage{display:none}
+.types-intro{text-align:center;margin-bottom:24px}
+.types-intro h2{font-family:'Dela Gothic One',cursive;font-size:22px;margin-bottom:6px}
+.types-intro p{font-size:12px;color:var(--muted)}
+.types-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* ════════════ プライバシーポリシーモーダル ════════════ */
+.pp-overlay{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(26,18,8,.65);
+  align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(3px);
+}
+.pp-overlay.open{display:flex}
+.pp-box{
+  background:var(--card);
+  border-top:3px solid var(--ink);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:680px;
+  max-height:80vh;overflow-y:auto;
+  padding:28px 22px 56px;
+  animation:slideUpModal .3s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes slideUpModal{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+.pp-close-btn{
+  float:right;margin-bottom:8px;
+  background:var(--light);border:1.5px solid var(--border);
+  border-radius:50%;width:34px;height:34px;
+  font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.pp-close-btn:hover{background:var(--ink);color:#fff}
+.pp-title{
+  font-family:'Dela Gothic One',cursive;
+  font-size:20px;letter-spacing:1px;
+  margin-bottom:20px;padding-top:8px;clear:both;
+}
+.pp-sec{margin-bottom:20px}
+.pp-sec h3{
+  font-size:13px;font-weight:900;
+  margin-bottom:8px;padding-left:8px;
+  border-left:3px solid var(--accent);
+}
+.pp-sec p,.pp-sec li{font-size:12.5px;line-height:2;color:var(--ink)}
+.pp-sec ul{padding-left:20px}
+.pp-updated{font-size:11px;color:var(--muted);margin-top:28px;text-align:center}
+
+/* ════════════ フッター ════════════ */
+.site-footer{
+  margin-top:56px;padding:22px 0 40px;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+.footer-links{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:16px;margin-bottom:10px;
+}
+.footer-links a{
+  font-size:11.5px;color:var(--muted);
+  text-decoration:none;font-weight:700;
+  letter-spacing:0.5px;cursor:pointer;
+}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:10px;color:var(--muted);letter-spacing:1px}
+
+/* ════ 広告スロット ════ */
+.ad-slot{
+  margin:20px 0;
+  text-align:center;
+  min-height:90px;
+  background:var(--light);
+  border-radius:12px;
+  border:1px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+/* AdSense有効時は背景・ボーダーを消す */
+.ad-slot.ad-active{
+  background:transparent;border:none;min-height:0;
+}
+.ad-slot-label{
+  font-size:9px;color:var(--muted);letter-spacing:2px;
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;
+}
+
+/* ════ アフィリエイトカード ════ */
+.affili-section{
+  margin:24px 0;
+}
+.affili-head{
+  font-size:11px;letter-spacing:3px;color:var(--muted);
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  font-weight:700;margin-bottom:12px;text-align:center;
+}
+.affili-cards{
+  display:flex;flex-direction:column;gap:10px;
+}
+.affili-card{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 16px;border-radius:14px;
+  background:var(--card);border:2px solid var(--border);
+  text-decoration:none;color:var(--ink);
+  transition:all .2s;position:relative;overflow:hidden;
+}
+.affili-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--ac, var(--accent));
+}
+.affili-card:hover{
+  border-color:var(--ink);
+  transform:translateX(3px);
+  box-shadow:3px 3px 0 var(--border);
+}
+.affili-ico{font-size:28px;flex-shrink:0}
+.affili-body{flex:1;min-width:0}
+.affili-name{font-size:13px;font-weight:900;margin-bottom:3px}
+.affili-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.affili-cta{
+  font-size:11px;font-weight:900;letter-spacing:1px;
+  color:var(--ac, var(--accent));flex-shrink:0;
+}
+.affili-badge{
+  display:inline-block;font-size:9px;font-weight:700;
+  padding:2px 6px;border-radius:3px;
+  color:var(--muted);background:var(--light);
+  border:1px solid var(--border);
+  margin-left:6px;vertical-align:middle;
+}
+
+/* ════ 運営者情報モーダル ════ */
+.about-overlay{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(26,18,8,.65);
+  align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(3px);
+}
+.about-overlay.open{display:flex}
+.about-box{
+  background:var(--card);
+  border-top:3px solid var(--ink);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:680px;
+  max-height:75vh;overflow-y:auto;
+  padding:28px 22px 56px;
+  animation:slideUpModal .3s cubic-bezier(.4,0,.2,1) both;
+}
+.about-close-btn{
+  float:right;margin-bottom:8px;
+  background:var(--light);border:1.5px solid var(--border);
+  border-radius:50%;width:34px;height:34px;
+  font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.about-close-btn:hover{background:var(--ink);color:#fff}
+.about-title{
+  font-family:'Dela Gothic One',cursive;
+  font-size:20px;letter-spacing:1px;
+  margin-bottom:20px;padding-top:8px;clear:both;
+}
+.about-sec{margin-bottom:20px}
+.about-sec h3{
+  font-size:13px;font-weight:900;
+  margin-bottom:8px;padding-left:8px;
+  border-left:3px solid var(--accent2);
+}
+.about-sec p,.about-sec li{font-size:12.5px;line-height:2;color:var(--ink)}
+.about-sec ul{padding-left:20px}
+.about-contact{
+  margin-top:20px;padding:16px;
+  background:var(--light);border-radius:12px;
+  border:1px solid var(--border);
+  font-size:12.5px;line-height:2;
+}
+
+.type-mini{
+  background:var(--card);border:2px solid var(--border);border-radius:16px;
+  padding:16px 14px;cursor:pointer;transition:all .2s;
+  position:relative;overflow:hidden;
+}
+.type-mini::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--tc,var(--accent));
+}
+.type-mini:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+.type-mini-face{font-size:28px;display:block;margin-bottom:6px}
+.type-mini-name{font-size:14px;font-weight:900;margin-bottom:2px}
+.type-mini-tag{font-size:10px;color:var(--muted);line-height:1.5}
+
+/* タイプ詳細モーダル */
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(26,18,8,.6);z-index:100;
+  align-items:center;justify-content:center;
+  padding:20px;
+  backdrop-filter:blur(4px);
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  background:var(--card);border:2.5px solid var(--ink);border-radius:24px;
+  max-width:500px;width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:8px 8px 0 var(--ink);
+  animation:popIn .3s cubic-bezier(.34,1.56,.64,1) both;
+}
+.modal-header{padding:28px 24px 20px;position:relative}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--light);border:1.5px solid var(--border);
+  font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.modal-close:hover{background:var(--ink);color:#fff}
+.modal-face{font-size:60px;display:block;margin-bottom:10px}
+.modal-name{font-family:'Dela Gothic One',cursive;font-size:32px;margin-bottom:2px}
+.modal-en{font-size:10px;letter-spacing:4px;color:var(--muted);margin-bottom:10px}
+.modal-catch{
+  font-size:13px;font-weight:700;
+  padding:10px 14px;border-radius:10px;
+  border-left:4px solid;
+  background:var(--light);margin-bottom:14px;
+}
+.modal-desc{font-size:12.5px;line-height:2;color:var(--ink);margin-bottom:14px}
+.modal-quote{
+  font-size:12px;color:var(--muted);line-height:1.9;
+  padding:12px 16px;border-radius:10px;
+  background:var(--light);font-style:italic;
+  position:relative;margin-bottom:14px;
+}
+.modal-quote::before{content:'"';font-size:40px;position:absolute;top:-6px;left:10px;font-style:normal;opacity:.1;font-family:Georgia,serif}
+.aruaru-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.aruaru-list li{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:10px 12px;border-radius:10px;
+  background:var(--light);border:1px solid var(--border);
+  font-size:12px;line-height:1.6;
+}
+.aruaru-list li span.ico{font-size:16px;flex-shrink:0}
+.modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.mstat{padding:10px 12px;border-radius:10px;background:var(--light);border:1px solid var(--border)}
+.mstat-k{font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:3px;font-weight:700}
+.mstat-v{font-size:13px;font-weight:900}
+.compat-row{display:flex;gap:8px;margin-bottom:8px}
+.compat-box{flex:1;padding:12px;border-radius:12px;border:1.5px solid;text-align:center}
+.compat-box.good{border-color:var(--accent2);background:rgba(29,122,95,.05)}
+.compat-box.clash{border-color:var(--accent);background:rgba(212,56,13,.05)}
+.compat-e{font-size:22px;display:block;margin-bottom:4px}
+.compat-name{font-size:13px;font-weight:900;margin-bottom:2px}
+.compat-d{font-size:10px;color:var(--muted)}
+.trait-bars{margin-bottom:14px}
+.tbar-row{margin-bottom:8px}
+.tbar-meta{display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:3px}
+.tbar-track{height:7px;background:var(--border);border-radius:4px;overflow:hidden}
+.tbar-fill{height:100%;border-radius:4px}
+.sec-label{
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  font-size:9px;letter-spacing:4px;font-weight:700;
+  color:var(--muted);margin-bottom:8px;margin-top:12px;
+}
+
+/* ════════════ PROGRESS ════════════ */
+#progressBar{display:none;margin-bottom:24px}
+.prog-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.prog-tag{font-size:9px;letter-spacing:4px;font-weight:700;color:var(--muted);font-family:'M PLUS Rounded 1c',sans-serif}
+.prog-frac{font-family:'Dela Gothic One',cursive;font-size:15px}
+.prog-track{height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+/* ════════════ QUESTION ════════════ */
+#questionArea{min-height:300px;transition:opacity .3s ease, transform .3s ease}
+#questionArea.fading{opacity:0;transform:translateY(-8px)}
+.q-card{
+  background:var(--card);
+  border:2.5px solid var(--ink);border-radius:22px;
+  padding:32px 24px 24px;
+  box-shadow:5px 5px 0 var(--ink);
+  animation:slideUp .3s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.q-num{
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  font-size:9px;letter-spacing:4px;font-weight:700;
+  color:var(--accent);margin-bottom:8px;
+}
+.q-cat{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:3px 10px;border-radius:20px;
+  background:var(--light);border:1px solid var(--border);
+  color:var(--muted);margin-bottom:12px;
+}
+.q-text{font-size:clamp(16px,4vw,21px);font-weight:900;line-height:1.55;margin-bottom:26px}
+
+.opts{display:grid;gap:10px}
+.opts.g2{grid-template-columns:1fr 1fr}
+.opt{
+  background:var(--light);border:2px solid var(--border);
+  border-radius:14px;padding:15px 16px;
+  cursor:pointer;text-align:left;transition:all .15s;position:relative;
+}
+.opt:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+.opt.on{border-color:var(--accent);background:rgba(212,56,13,.05);box-shadow:3px 3px 0 var(--accent)}
+.opt.on::after{content:'✓';position:absolute;top:9px;right:12px;font-size:11px;font-weight:900;color:var(--accent)}
+.opt-ico{font-size:20px;display:block;margin-bottom:6px}
+.opt-main{font-size:13px;font-weight:700;margin-bottom:2px;line-height:1.3}
+.opt-sub{font-size:11px;color:var(--muted);line-height:1.45}
+
+/* ── MBTI風 2択×5段階 ── */
+.mbti-pair{
+  display:flex;align-items:stretch;gap:10px;
+  margin-bottom:28px;
+}
+.mbti-side{
+  flex:1;padding:18px 14px;
+  border:2px solid var(--border);border-radius:14px;
+  background:var(--light);
+  text-align:center;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  position:relative;
+  min-height:140px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.side-ico{font-size:32px;display:block;margin-bottom:8px;transition:transform .3s}
+.side-label{font-size:13px;font-weight:900;line-height:1.4;margin-bottom:4px}
+.side-sub{font-size:11px;color:var(--muted);line-height:1.5}
+.mbti-side.active-side{
+  border-color:var(--accent);
+  background:rgba(212,56,13,.06);
+  box-shadow:3px 3px 0 var(--accent);
+  transform:translateY(-2px);
+}
+.mbti-side.active-side .side-ico{transform:scale(1.15)}
+.mbti-vs{
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Dela Gothic One',cursive;
+  font-size:14px;color:var(--muted);
+  letter-spacing:1px;
+  padding:0 2px;
+}
+
+/* スライダー */
+.slider-row{margin-bottom:8px}
+.slider-track{
+  position:relative;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 6px;
+  margin-bottom:6px;
+}
+.slider-line{
+  position:absolute;top:50%;left:6px;right:6px;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--border) 25%,var(--border) 75%,var(--accent));
+  border-radius:2px;transform:translateY(-50%);z-index:0;
+  opacity:.5;
+}
+.slider-dot{
+  position:relative;z-index:1;
+  width:28px;height:28px;
+  border-radius:50%;
+  background:#fff;
+  border:2.5px solid var(--border);
+  cursor:pointer;
+  padding:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+}
+.slider-dot:hover{
+  border-color:var(--ink);
+  transform:scale(1.1);
+}
+/* ── フォーカスリング（キーボード操作の視認性） ── */
+.slider-dot:focus{outline:none}
+.slider-dot:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:5px;
+  border-color:var(--accent);
+}
+.slider-dot .dot-inner{
+  width:8px;height:8px;border-radius:50%;
+  background:transparent;transition:all .2s;
+}
+.slider-dot.active{
+  border-color:var(--accent);
+  background:var(--accent);
+  box-shadow:0 0 0 4px rgba(212,56,13,.18), 2px 2px 0 var(--ink);
+  transform:scale(1.2);
+}
+.slider-dot.active .dot-inner{background:#fff}
+/* 中央は少し大きく（ニュートラル強調） */
+.slider-dot[data-val="0"]{width:24px;height:24px}
+/* 完全A・完全Bは少し大きく */
+.slider-dot[data-val="-2"],.slider-dot[data-val="2"]{width:32px;height:32px}
+
+.slider-labels{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  font-size:9.5px;color:var(--muted);
+  text-align:center;
+  font-weight:700;
+  margin-top:4px;
+  padding:0 6px;
+}
+.slider-labels span{transition:color .2s}
+.slider-labels span.active{color:var(--accent)}
+
+/* キーボード操作ヒント */
+.kbd-hint{
+  text-align:center;font-size:10.5px;color:var(--muted);
+  margin-top:10px;font-family:'M PLUS Rounded 1c',sans-serif;
+  letter-spacing:1px;
+}
+.kbd-hint kbd{
+  display:inline-block;padding:1px 6px;margin:0 1px;
+  font-size:10px;font-family:inherit;
+  background:var(--light);
+  border:1px solid var(--border);
+  border-bottom-width:2px;
+  border-radius:4px;
+  color:var(--ink);
+}
+
+/* フォーカスリング全体 */
+button:focus{outline:none}
+button:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* モバイルで左右を少し狭く */
+@media (max-width: 420px){
+  .mbti-pair{gap:6px}
+  .mbti-side{padding:14px 10px;min-height:130px}
+  .side-ico{font-size:26px}
+  .side-label{font-size:12px}
+  .side-sub{font-size:10.5px}
+  .slider-labels{font-size:8.5px}
+  .hero-chara{width:150px;height:150px}
+  .hero-chara-fallback{font-size:78px}
+}
+
+.nav{display:flex;gap:10px;margin-top:24px}
+.btn-bk{
+  padding:12px 18px;background:none;
+  border:2px solid var(--border);border-radius:11px;
+  font-size:12px;font-weight:700;cursor:pointer;
+  color:var(--muted);transition:all .15s;
+}
+.btn-bk:hover{border-color:var(--ink);color:var(--ink)}
+.btn-nx{
+  flex:1;padding:14px;
+  background:var(--ink);color:#fff;
+  border:2px solid var(--ink);border-radius:11px;
+  font-family:'Dela Gothic One',cursive;font-size:15px;letter-spacing:2px;
+  cursor:pointer;box-shadow:3px 3px 0 var(--accent);transition:all .15s;
+}
+.btn-nx:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--accent)}
+.btn-nx:disabled{opacity:.28;cursor:default;box-shadow:none}
+
+/* ════════════ LOADING ════════════ */
+#loadingScreen{display:none;text-align:center;padding:70px 20px}
+.load-ico{font-size:64px;display:block;animation:bob .8s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-18px) rotate(3deg)}}
+.load-h{font-family:'Dela Gothic One',cursive;font-size:20px;margin:20px 0 6px}
+.load-s{font-size:12px;color:var(--muted)}
+
+/* ════════════ RESULT ════════════ */
+#resultScreen{display:none}
+
+.result-intro{text-align:center;margin-bottom:28px;animation:popIn .5s ease both}
+.result-kicker{font-size:10px;letter-spacing:5px;color:var(--muted);font-weight:700;margin-bottom:8px;font-family:'M PLUS Rounded 1c',sans-serif}
+.result-headline{
+  font-family:'Dela Gothic One',cursive;
+  font-size:clamp(26px,7vw,40px);line-height:1.2;
+}
+
+/* メインカード */
+.hero{
+  border:3px solid var(--ink);border-radius:26px;overflow:hidden;
+  box-shadow:8px 8px 0 var(--ink);margin-bottom:18px;
+  animation:popIn .6s cubic-bezier(.34,1.56,.64,1) .05s both;
+  position:relative;
+}
+.hero-top{
+  padding:40px 26px 28px;position:relative;
+  background:var(--heroBg, #fafaf0);
+  text-align:center;
+}
+/* タイプカラーと連動した背景レイヤー（グラデーション＋和柄ドット） */
+.hero-top::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, var(--heroGrad1, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 40% at 20% 100%, var(--heroGrad2, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 40% at 80% 100%, var(--heroGrad2, transparent) 0%, transparent 70%);
+  opacity:.8;
+}
+.hero-top::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle, rgba(26,18,8,.04) 1px, transparent 1px);
+  background-size:18px 18px;
+  opacity:.6;
+}
+.hero-top > *{position:relative;z-index:1}
+
+.hero-badge{
+  position:absolute;top:16px;right:16px;
+  font-size:10px;font-weight:900;letter-spacing:2px;
+  padding:5px 14px;border-radius:3px;border:2px solid;background:#fff;
+  font-family:'M PLUS Rounded 1c',sans-serif;
+  z-index:3;
+}
+
+/* ── キャラクター画像プレースホルダー枠 ── */
+.hero-chara{
+  width:180px;height:180px;
+  margin:0 auto 18px;
+  position:relative;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), rgba(255,255,255,.4));
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.15),
+    inset 0 2px 10px rgba(255,255,255,.5),
+    0 0 0 4px rgba(255,255,255,.3),
+    0 0 0 5px var(--heroBorder, rgba(0,0,0,.1));
+  overflow:hidden;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.hero-chara:hover{transform:scale(1.03) rotate(-1deg)}
+.hero-chara img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+.hero-chara-fallback{
+  font-size:92px;
+  line-height:1;
+  filter:drop-shadow(0 4px 16px rgba(0,0,0,.2));
+  animation:charBob 3s ease-in-out infinite alternate;
+}
+@keyframes charBob{
+  from{transform:translateY(0) rotate(-2deg)}
+  to{transform:translateY(-6px) rotate(2deg)}
+}
+/* 装飾：キラキラ */
+.hero-chara::before{
+  content:'✨';
+  position:absolute;top:8px;right:20px;
+  font-size:18px;animation:twinkle 2s ease-in-out infinite;
+}
+.hero-chara::after{
+  content:'✨';
+  position:absolute;bottom:18px;left:16px;
+  font-size:14px;animation:twinkle 2s ease-in-out .7s infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.3;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.2)}
+}
+
+.hero-face{font-size:88px;display:block;margin-bottom:10px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.15))}
+.hero-eyebrow{font-size:10px;letter-spacing:4px;color:var(--muted);margin-bottom:6px;font-weight:700;font-family:'M PLUS Rounded 1c',sans-serif}
+.hero-name{font-family:'Dela Gothic One',cursive;font-size:clamp(46px,11vw,68px);line-height:1;margin-bottom:5px}
+.hero-en{font-size:10px;letter-spacing:4px;color:var(--muted);margin-bottom:18px}
+.hero-catch{
+  font-size:14px;font-weight:700;line-height:1.7;
+  padding:14px 18px;border-radius:12px;
+  border-left:5px solid;background:rgba(255,255,255,.75);
+  backdrop-filter:blur(3px);
+  position:relative;text-align:left;
+}
+.hero-catch::before{content:'"';font-size:48px;position:absolute;top:-8px;left:12px;opacity:.1;font-family:Georgia,serif;line-height:1}
+
+.hero-tags{padding:14px 20px 10px;display:flex;flex-wrap:wrap;gap:6px;background:#fff;position:relative;z-index:2}
+.htag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:3px;border:1.5px solid}
+
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--border);background:#fff;position:relative;z-index:2}
+.st-cell{padding:14px 6px;text-align:center;border-right:1px solid var(--border)}
+.st-cell:last-child{border-right:none}
+.st-v{font-family:'Dela Gothic One',cursive;font-size:13px;line-height:1.3}
+.st-k{font-size:9px;color:var(--muted);letter-spacing:1px;margin-top:3px}
+
+/* ── ライフステージ連動ブロック ── */
+.life-reco{
+  background:linear-gradient(135deg, rgba(200,146,42,.06), rgba(29,122,95,.06));
+  border:1.5px solid var(--border);
+  border-radius:13px;padding:14px 16px;
+}
+.life-reco-head{font-size:12px;color:var(--muted);margin-bottom:10px;font-weight:700}
+.life-reco-head b{color:var(--ink)}
+.life-reco-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.life-reco-item{
+  background:#fff;padding:11px 12px;border-radius:10px;
+  border:1px solid var(--border);font-size:12px;
+  display:flex;align-items:center;gap:9px;
+  font-weight:600;
+}
+.life-reco-ico{font-size:18px;flex-shrink:0}
+
+/* ── スポット情報 ── */
+.spots-list{display:flex;flex-direction:column;gap:10px}
+.spot-card{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 15px;border-radius:13px;
+  background:var(--light);border:1.5px solid var(--border);
+  text-decoration:none;color:var(--ink);
+  transition:all .15s;
+}
+.spot-card:hover{border-color:var(--ink);transform:translateX(2px);box-shadow:3px 3px 0 var(--border)}
+.spot-ico{font-size:24px;flex-shrink:0}
+.spot-info{flex:1;min-width:0}
+.spot-name{font-size:13.5px;font-weight:900;margin-bottom:2px}
+.spot-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.spot-arrow{font-size:16px;color:var(--muted);flex-shrink:0}
+
+/* ── Nostal Homes連携 ── */
+.nostal-box{
+  background:
+    linear-gradient(135deg, rgba(200,146,42,.1), rgba(29,122,95,.1)),
+    radial-gradient(circle at 80% 20%, rgba(200,146,42,.15), transparent 50%);
+  border:2px solid var(--gold);
+  border-radius:16px;
+  padding:22px;position:relative;overflow:hidden;
+}
+.nostal-box::after{
+  content:'🏡';position:absolute;bottom:-20px;right:-10px;
+  font-size:90px;opacity:.1;pointer-events:none;
+}
+.nostal-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.nostal-hd-ico{font-size:26px}
+.nostal-title{font-family:'Dela Gothic One',cursive;font-size:15px;letter-spacing:1px}
+.nostal-desc{font-size:12.5px;line-height:1.9;color:var(--ink);margin-bottom:14px}
+.nostal-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 20px;border-radius:10px;
+  background:var(--ink);color:#fff;
+  font-size:12.5px;font-weight:700;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .15s;
+  box-shadow:3px 3px 0 var(--gold);
+  font-family:'Noto Sans JP',sans-serif;
+}
+.nostal-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--gold)}
+
+/* セクション */
+.rsec{
+  background:var(--card);border:2px solid var(--ink);
+  border-radius:18px;padding:22px;margin-bottom:14px;
+  box-shadow:4px 4px 0 var(--border);
+  animation:slideUp .4s ease both;
+}
+.rsec:nth-child(1){animation-delay:.05s}.rsec:nth-child(2){animation-delay:.10s}
+.rsec:nth-child(3){animation-delay:.15s}.rsec:nth-child(4){animation-delay:.20s}
+.rsec:nth-child(5){animation-delay:.25s}
+.rsec-hd{
+  font-family:'Dela Gothic One',cursive;font-size:13px;letter-spacing:2px;
+  display:flex;align-items:center;gap:8px;margin-bottom:16px;
+}
+
+/* シェア */
+.share-box{
+  background:var(--card);border:2.5px solid var(--ink);
+  border-radius:18px;padding:22px;margin-bottom:14px;
+  box-shadow:4px 4px 0 var(--border);
+}
+.share-hd{font-family:'Dela Gothic One',cursive;font-size:13px;letter-spacing:2px;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.share-preview{
+  background:var(--light);border:1.5px solid var(--border);
+  border-radius:10px;padding:14px 16px;
+  font-size:12.5px;line-height:1.9;margin-bottom:14px;
+  white-space:pre-wrap;
+}
+.share-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-share{
+  display:flex;align-items:center;gap:8px;
+  padding:11px 20px;border-radius:10px;border:2px solid;
+  font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;
+  font-family:'Noto Sans JP',sans-serif;
+}
+.btn-x{background:#000;color:#fff;border-color:#000;box-shadow:3px 3px 0 #555}
+.btn-x:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 #555}
+.btn-copy{background:var(--light);color:var(--ink);border-color:var(--border);box-shadow:3px 3px 0 var(--border)}
+.btn-copy:hover{border-color:var(--ink);transform:translate(-1px,-1px)}
+.copied{color:var(--accent2)!important;border-color:var(--accent2)!important}
+
+/* あるある */
+.aruaru-result{display:flex;flex-direction:column;gap:8px}
+.ar-item{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:11px;background:var(--light);border:1.5px solid var(--border);font-size:13px;line-height:1.6}
+.ar-ico{font-size:18px;flex-shrink:0}
+
+/* レーダーバー */
+.rbar-row{margin-bottom:10px}
+.rbar-meta{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;margin-bottom:4px}
+.rbar-track{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.rbar-fill{height:100%;border-radius:4px;transition:width 1.1s cubic-bezier(.4,0,.2,1) .4s}
+
+/* 相性 */
+.compat-r{display:flex;gap:10px}
+.cb{flex:1;padding:16px;border-radius:13px;border:2px solid;text-align:center}
+.cb.good{border-color:var(--accent2);background:rgba(29,122,95,.05)}
+.cb.clash{border-color:var(--accent);background:rgba(212,56,13,.05)}
+.cb-e{font-size:28px;display:block;margin-bottom:6px}
+.cb-n{font-size:15px;font-weight:900;margin-bottom:3px}
+.cb-d{font-size:11px;color:var(--muted)}
+
+/* alt */
+.alt-list{display:flex;flex-direction:column;gap:9px}
+.alt-row{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:12px;background:var(--light);border:2px solid var(--border)}
+.alt-rank{font-family:'Dela Gothic One',cursive;font-size:18px;width:28px;text-align:center}
+.alt-face{font-size:26px}
+.alt-info{flex:1}
+.alt-nm{font-size:15px;font-weight:900}
+.alt-tp{font-size:11px;color:var(--muted)}
+.alt-pct{font-family:'Dela Gothic One',cursive;font-size:17px}
+
+.btn-retry{
+  display:block;width:100%;margin-top:28px;padding:15px;
+  background:none;border:2.5px dashed var(--border);border-radius:14px;
+  font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;
+  letter-spacing:1px;transition:all .2s;
+}
+.btn-retry:hover{border-color:var(--ink);color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-header">
+  <div class="eyebrow">TOKYO PERSONALITY QUIZ</div>
+  <div class="logo-wrap">
+    <div class="logo">東京<span class="logo-accent">人</span>診断</div>
+  </div>
+  <div class="logo-sub">あなたはどの東京に生きる人間か</div>
+</header>
+
+<!-- タブ -->
+<div class="nav-tabs">
+  <button class="tab-btn active" id="tabQuiz" onclick="showTab('quiz')">🧬 診断する</button>
+  <button class="tab-btn" id="tabTypes" onclick="showTab('types')">🏙 全16タイプ</button>
+</div>
+
+<!-- ===== QUIZ TAB ===== -->
+<div id="quizTab">
+
+  <!-- スタート -->
+  <div id="startScreen">
+    <div class="start-card">
+      <span class="start-face">🗼</span>
+      <div class="start-h">あなたはどの街の人間？</div>
+      <div class="start-tagline">東京16エリアの「人格タイプ」を判定</div>
+      <button class="btn-start" onclick="startQuiz()">診断スタート</button>
+      <div class="start-note">約3分 · 無料 · 登録不要</div>
+      <p style="font-size:10px;color:var(--muted);margin-top:14px;line-height:1.8">
+        「診断スタート」をタップすることで、<br>
+        <a onclick="openPP()" style="color:var(--muted);text-decoration:underline;cursor:pointer">プライバシーポリシー</a>に同意したものとみなします。
+      </p>
+    </div>
+  </div>
+
+  <!-- プログレス -->
+  <div id="progressBar">
+    <div class="prog-row">
+      <div class="prog-tag">QUESTION</div>
+      <div class="prog-frac" id="progFrac">1 / 20</div>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- 質問エリア -->
+  <div id="questionArea"></div>
+
+  <!-- ローディング -->
+  <div id="loadingScreen">
+    <span class="load-ico" id="loadIco">🗺️</span>
+    <div class="load-h" id="loadH">あなたの「人」を探しています…</div>
+    <div class="load-s">東京中を歩き回っています</div>
+  </div>
+
+  <!-- 結果エリア -->
+  <div id="resultScreen"></div>
+
+</div>
+
+<!-- ===== TYPES TAB ===== -->
+<div id="typesPage" style="display:none">
+  <div class="types-intro">
+    <h2>全16タイプ 〇〇人図鑑</h2>
+    <p>気になるタイプをタップして詳細を確認</p>
+  </div>
+  <div class="types-grid" id="typesGrid"></div>
+</div>
+
+<!-- モーダル -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<!-- ═══ プライバシーポリシーモーダル ═══ -->
+<div class="pp-overlay" id="ppOverlay" onclick="closePP(event)">
+  <div class="pp-box" id="ppBox">
+    <button class="pp-close-btn" onclick="closePP()" aria-label="閉じる">✕</button>
+    <div class="pp-title">プライバシーポリシー</div>
+
+    <div class="pp-sec">
+      <h3>1. 収集する情報</h3>
+      <p>本サービス「東京人診断」では、診断品質の向上および利用分析のため、以下の情報を収集します。</p>
+      <ul>
+        <li>各設問（全20問）への回答値（-2〜+2の数値）</li>
+        <li>判定結果のタイプおよびマッチ率</li>
+        <li>診断の所要時間・各設問の回答時間</li>
+        <li>ブラウザの種類・画面サイズ・参照元URL（リファラー）</li>
+        <li>ランダム生成された匿名の識別ID（個人を特定しない）</li>
+      </ul>
+    </div>
+
+    <div class="pp-sec">
+      <h3>2. 収集しない情報</h3>
+      <p>氏名・住所・電話番号・メールアドレス・位置情報など、個人を直接特定できる情報は一切収集しません。</p>
+    </div>
+
+    <div class="pp-sec">
+      <h3>3. 情報の利用目的</h3>
+      <ul>
+        <li>診断コンテンツ・設問の改善</li>
+        <li>利用傾向の統計分析（どのタイプが多いかなど）</li>
+        <li>サービスの品質向上</li>
+      </ul>
+    </div>
+
+    <div class="pp-sec">
+      <h3>4. 第三者提供</h3>
+      <p>収集した情報を、法令に基づく場合を除き、第三者に提供・販売することはありません。統計データとしてサービス改善目的で使用するのみです。</p>
+    </div>
+
+    <div class="pp-sec">
+      <h3>5. データの保管</h3>
+      <p>回答データはGoogleスプレッドシートにて管理します。Googleのプライバシーポリシーが適用されます。</p>
+    </div>
+
+    <div class="pp-sec">
+      <h3>6. Cookieおよびローカルストレージ</h3>
+      <p>本サービスでは、重複回答の識別のみを目的として、ブラウザのLocalStorageに匿名IDを保存します。広告目的での使用はありません。</p>
+    </div>
+
+    <div class="pp-sec">
+      <h3>7. お問い合わせ</h3>
+      <p>プライバシーに関するお問い合わせは、本サービスの運営者までご連絡ください。</p>
+    </div>
+
+    <div class="pp-updated">制定日：2025年1月 / Tokyo Match Project</div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<!-- ═══ フッター ═══ -->
+<footer class="site-footer" style="position:relative;z-index:1">
+  <div class="footer-links">
+    <a onclick="showTab('quiz');return false">診断する</a>
+    <a onclick="showTab('types');return false">全タイプ図鑑</a>
+    <a onclick="openAbout();return false">運営者情報</a>
+    <a onclick="openPP();return false">プライバシーポリシー</a>
+    <a href="https://twitter.com/search?q=%23東京人診断" target="_blank" rel="noopener">#東京人診断</a>
+  </div>
+  <div class="footer-copy">© Tokyo Match Project 2025</div>
+</footer>
+
+<!-- ═══ 運営者情報モーダル ═══ -->
+<div class="about-overlay" id="aboutOverlay" onclick="closeAbout(event)">
+  <div class="about-box">
+    <button class="about-close-btn" onclick="closeAbout()" aria-label="閉じる">✕</button>
+    <div class="about-title">運営者情報</div>
+
+    <div class="about-sec">
+      <h3>サービス概要</h3>
+      <p>「東京人診断」は、東京16エリアのライフスタイル・価値観を軸に、あなたの「人格タイプ」を診断する無料のWebサービスです。診断は娯楽目的であり、実際の住居選択を保証するものではありません。</p>
+    </div>
+
+    <div class="about-sec">
+      <h3>運営者</h3>
+      <ul>
+        <li>サービス名：東京人診断</li>
+        <li>運営：Tokyo Match Project</li>
+        <li>公開年：2025年</li>
+        <li>対象地域：日本（主に東京都）</li>
+      </ul>
+    </div>
+
+    <div class="about-sec">
+      <h3>広告について</h3>
+      <p>本サービスでは、Google AdSense（第三者配信）および不動産・生活サービスへのアフィリエイトリンクを掲載しています。アフィリエイトリンクには「PR」と明記しています。広告収益はサービスの継続・改善に使用されます。</p>
+    </div>
+
+    <div class="about-sec">
+      <h3>免責事項</h3>
+      <p>本サービスの診断結果は、エンターテインメント目的であり、住居選択・投資・その他の判断の根拠となるものではありません。掲載情報の正確性・完全性を保証するものではありません。</p>
+    </div>
+
+    <div class="about-contact">
+      <strong>お問い合わせ</strong><br>
+      サービスに関するご意見・ご要望・不具合報告は<br>
+      X（旧Twitter）の <a href="https://twitter.com/search?q=%23東京人診断" target="_blank" rel="noopener" style="color:var(--accent)">#東京人診断</a> または<br>
+      GitHubのIssuesよりご連絡ください。
+    </div>
+
+    <div class="pp-updated" style="margin-top:20px">制定：2025年 / Tokyo Match Project</div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+// 20問 — MBTI風 2択 × 5段階スライダー
+// 回答値: -2 (完全A), -1 (A寄り), 0 (どちらも), 1 (B寄り), 2 (完全B)
+// ══════════════════════════════════════════════
+const Qs = [
+  // ── 生活シーン ──────────────────────────────
+  {
+    id:'friday_night', cat:'生活シーン',
+    text:'金曜の夜、急に予定がなくなった。どちらに近い？',
+    A:{ico:'🍻', label:'誰かに連絡して飲みに行く', sub:'一人でいるなんてもったいない'},
+    B:{ico:'🛋️', label:'よっしゃ、一人時間！と喜ぶ', sub:'動画・ゲーム・読書が待っている'},
+  },
+  {
+    id:'new_shop', cat:'生活シーン',
+    text:'散歩中、路地裏に気になる店を見つけた',
+    A:{ico:'🚪', label:'迷わず入る。直感でGO', sub:'後で後悔するくらいなら入る'},
+    B:{ico:'📱', label:'まずスマホで調べてから判断', sub:'評価を確認してから決めたい'},
+  },
+  {
+    id:'weekend_morning', cat:'生活シーン',
+    text:'特に予定のない週末の朝、どちらに近い？',
+    A:{ico:'🏃', label:'起きて体を動かしている', sub:'ラン・カフェ・朝活'},
+    B:{ico:'💤', label:'気づいたら昼になっている', sub:'ゆっくり寝るのが一番の贅沢'},
+  },
+  {
+    id:'trouble_alone', cat:'生活シーン',
+    text:'モヤモヤしたとき、最初にすることは？',
+    A:{ico:'📞', label:'誰かに話を聞いてもらう', sub:'話すと頭が整理される'},
+    B:{ico:'🎧', label:'一人で考えて整理する', sub:'音楽や散歩で落ち着ける'},
+  },
+  {
+    id:'money_use', cat:'価値観・選択',
+    text:'急に1万円が手に入った。どちらに使う？',
+    A:{ico:'🎭', label:'体験・コンテンツに使う', sub:'食事、ライブ、展示など'},
+    B:{ico:'👗', label:'モノ・貯蓄に使う', sub:'服、雑貨、または貯金'},
+  },
+  {
+    id:'decision_basis', cat:'価値観・選択',
+    text:'引越し先を決めるとき、重視するのは？',
+    A:{ico:'✨', label:'雰囲気・直感', sub:'歩いて感じたものが全て'},
+    B:{ico:'📊', label:'スペック・条件', sub:'家賃・路線・数字で決める'},
+  },
+  {
+    id:'core_need', cat:'価値観・選択',
+    text:'住む街に本当に求めているのは？',
+    A:{ico:'⚡', label:'刺激と新しさ', sub:'常に何か起きている感じ'},
+    B:{ico:'🌿', label:'落ち着きと馴染み', sub:'帰るとほっとする感じ'},
+  },
+  {
+    id:'community_depth', cat:'価値観・選択',
+    text:'街や近所との関わり方、どちらに近い？',
+    A:{ico:'👋', label:'顔見知りが多い方がいい', sub:'地元感・コミュニティが好き'},
+    B:{ico:'🙈', label:'ひっそり暮らしたい', sub:'プライバシーを大切にしたい'},
+  },
+  {
+    id:'coffee_style', cat:'価値観・選択',
+    text:'コーヒーにこだわりはある？',
+    A:{ico:'☕', label:'産地や焙煎まで気になる', sub:'コーヒーそのものを楽しみたい'},
+    B:{ico:'🏪', label:'何でもOK、手軽さ優先', sub:'コンビニコーヒーで十分'},
+  },
+  {
+    id:'crowded', cat:'感情・反応',
+    text:'すごく混んでいる場所に来た。どう感じる？',
+    A:{ico:'😤', label:'不快、早く抜けたい', sub:'人混みは体力を奪われる'},
+    B:{ico:'😄', label:'賑やかで楽しい！', sub:'人がいるとテンション上がる'},
+  },
+  {
+    id:'praise', cat:'感情・反応',
+    text:'急に「センスいいね」と褒められた',
+    A:{ico:'😊', label:'素直にありがとうと言える', sub:'褒め言葉はちゃんと受け取る'},
+    B:{ico:'😅', label:'照れて謙遜してしまう', sub:'「そんなことないですよ」と言う'},
+  },
+  {
+    id:'irritation', cat:'感情・反応',
+    text:'じわじわイラっとするのはどっち？',
+    A:{ico:'🐢', label:'動きが遅い・非効率なこと', sub:'効率を大切にしたい'},
+    B:{ico:'🏗️', label:'好きだったものが変わること', sub:'馴染んだものを大切にしたい'},
+  },
+  {
+    id:'new_hobby', cat:'行動・習慣',
+    text:'新しい趣味を始めるとしたら？',
+    A:{ico:'📖', label:'まず調べて知識を固める', sub:'理解してからスタートしたい'},
+    B:{ico:'🎲', label:'とりあえず体験してみる', sub:'考えるより先に動く'},
+  },
+  {
+    id:'room_state', cat:'行動・習慣',
+    text:'自分の部屋を正直に言うと？',
+    A:{ico:'✨', label:'整っている・ミニマル', sub:'物は少なめでスッキリしている'},
+    B:{ico:'📦', label:'こだわりの物で溢れている', sub:'好きなもので埋め尽くされている'},
+  },
+  {
+    id:'social_style', cat:'行動・習慣',
+    text:'人付き合いのスタイル、どちらに近い？',
+    A:{ico:'🌐', label:'広く浅く、知り合い多め', sub:'いろんな人と繋がっていたい'},
+    B:{ico:'🔗', label:'狭く深く、少数精鋭', sub:'本当に信頼できる人が数人いれば'},
+  },
+  {
+    id:'decision_speed', cat:'行動・習慣',
+    text:'何かを決めるとき、どちらに近い？',
+    A:{ico:'⚡', label:'即決派、直感で決める', sub:'迷う時間がもったいない'},
+    B:{ico:'🔍', label:'慎重派、情報を集める', sub:'後悔しない選択をしたい'},
+  },
+  {
+    id:'future_vision', cat:'価値観・選択',
+    text:'理想の生活、どちらに近い？',
+    A:{ico:'🏙️', label:'都市の最前線で情報と刺激', sub:'スピード感の中で生きたい'},
+    B:{ico:'🌳', label:'自然の近くでゆっくり深く', sub:'季節を感じて丁寧に生きたい'},
+  },
+  {
+    id:'stress_escape', cat:'価値観・選択',
+    text:'本当に疲れたとき、回復できる場所は？',
+    A:{ico:'🌲', label:'自然の中（公園・山・海）', sub:'緑や水があると癒される'},
+    B:{ico:'🏠', label:'自分の部屋', sub:'家が一番落ち着く聖域'},
+  },
+  {
+    id:'belonging', cat:'価値観・選択',
+    text:'「この街の人」という感覚を持ちたい？',
+    A:{ico:'🌱', label:'持ちたい、根を張りたい', sub:'長く住んで馴染みたい'},
+    B:{ico:'🎲', label:'縛られず自由でいたい', sub:'いつでも動ける状態がいい'},
+  },
+  // ── 補助情報 ────────────
+  {
+    id:'lifestyle', cat:'あなたのこと', isLifestyle:true,
+    text:'今のライフスタイルを教えてください',
+    opts:[
+      {ico:'🎓', main:'学生・院生', sub:'学業とバイトが軸', val:'student'},
+      {ico:'💼', main:'一人暮らし社会人', sub:'仕事が生活の中心', val:'worker'},
+      {ico:'👫', main:'カップル・同棲', sub:'二人で暮らす（予定）', val:'couple'},
+      {ico:'👨‍👩‍👧', main:'ファミリー', sub:'子育て・教育環境が大事', val:'family'},
+    ],
+  },
+];
+
+// ══════════════════════════════════════════════
+// 16タイプ
+// ══════════════════════════════════════════════
+const PEOPLE = [
+  {
+    id:'nakameguro',face:'🌸',name:'中目黒人',nameEn:'NAKAMEGURO',
+    color:'#d63a7a',
+    image:'images/nakameguro.png', area:'中目黒',
+    catch:'川沿いカフェでMacBook開いてる系',
+    tagline:'東京のトレンド最前線に、自然体でいる人',
+    quote:'「目黒川沿いのテラス席でラテ飲みながら、午後の打ち合わせを済ませる。それが私の普通です。」',
+    desc:'意識してはいないが、いつも少し先を行っている。コーヒーはスペシャルティ、服はセレクトショップ、仕事はクリエイティブ系かIT。目黒川の桜の季節は毎週通う。「おしゃれ」という言葉が最も似合う街に、最も似合う人として生きている。',
+    traits:{'感度の高さ':92,'おしゃれ度':95,'社交性':80,'コスパ感':35,'落ち着き':52},
+    aruaru:[
+      {ico:'☕',t:'コーヒーはスペシャルティ一択。チェーンには入れない'},
+      {ico:'📸',t:'インスタのストーリーが週5以上更新されている'},
+      {ico:'🌸',t:'花見の季節は毎週末、川沿いを歩かずにいられない'},
+      {ico:'🌙',t:'バーでは必ず「次の店も行こう」と言い出す'},
+    ],
+    stats:{rent:'12〜20万',access:'渋谷8分',park:'目黒川🌸',pop:'20〜30代'},
+    good:{e:'😎',name:'代官山人',d:'一駅で会える、価値観がほぼ同じ'},
+    bad:{e:'😅',name:'亀有人',d:'遠すぎてお互いの存在を知らない'},
+    tags:['カフェ','インスタ','夜型','目黒川','ハイセンス'],
+    spots:[{ico:'☕',name:'サイドウォークコーヒースタンド',desc:'目黒川沿いのスペシャルティカフェ'},{ico:'🌸',name:'目黒川沿い遊歩道',desc:'桜の名所、散歩の定番ルート'},{ico:'📚',name:'COW BOOKS',desc:'松浦弥太郎プロデュースの古書店'}],
+    ideal:{friday_night:-2,new_shop:-2,weekend_morning:0,trouble_alone:-1,money_use:-1,decision_basis:-2,core_need:-2,community_depth:0,coffee_style:-2,crowded:0,praise:-1,irritation:-1,new_hobby:1,room_state:1,social_style:-1,decision_speed:-1,future_vision:-2,stress_escape:0,belonging:1},
+    lifeAffinity:{student:0.6,worker:1.0,couple:1.0,family:0.5}
+  },
+  {
+    id:'daikanyama',face:'📖',name:'代官山人',nameEn:'DAIKANYAMA',
+    color:'#b5651d',
+    image:'images/daikanyama.png', area:'代官山',
+    catch:'蔦屋書店で半日過ごせる洗練された大人',
+    tagline:'静かで上質な時間を知っている人',
+    quote:'「蔦屋でコーヒー片手に本を選んで、ヒルサイドテラスでランチ。これが普通の土曜日です。」',
+    desc:'騒がしい場所を避け、上質なものをゆっくり楽しむ大人の美意識を持つ。服の数は少なくても一着一着が上質。「良いものを長く」が根底にある美学。蔦屋書店のカードを使いこなし、セレクトショップで「迷わず買う」ができる人。',
+    traits:{'洗練度':95,'落ち着き':92,'グルメ力':85,'コスパ感':30,'人混み耐性':28},
+    aruaru:[
+      {ico:'📚',t:'蔦屋書店のカードを使いこなしている'},
+      {ico:'🌿',t:'雑貨屋で「これ置くだけで部屋が変わる」と買う'},
+      {ico:'🧥',t:'服の数は少ないが一着一着が上質'},
+      {ico:'🍝',t:'ランチの予算は1500円を下回らない'},
+    ],
+    stats:{rent:'14〜22万',access:'渋谷5分',park:'旧山手通り🌿',pop:'30〜40代'},
+    good:{e:'🌸',name:'中目黒人',d:'一駅の最高の隣人'},
+    bad:{e:'🎰',name:'池袋人',d:'価値観の軸が正反対'},
+    tags:['蔦屋','洗練','静か','大人','アート'],
+    spots:[{ico:'📚',name:'代官山 蔦屋書店',desc:'半日過ごせる大人のための書店'},{ico:'🍽️',name:'ヒルサイドテラス',desc:'上質な時間が流れる複合施設'},{ico:'🧥',name:'OKURA',desc:'藍染めアイテムの名店'}],
+    ideal:{friday_night:1,new_shop:1,weekend_morning:-1,trouble_alone:1,money_use:-1,decision_basis:-1,core_need:-1,community_depth:1,coffee_style:-2,crowded:-2,praise:-1,irritation:-1,new_hobby:-1,room_state:1,social_style:1,decision_speed:1,future_vision:-1,stress_escape:1,belonging:0},
+    lifeAffinity:{student:0.4,worker:1.0,couple:1.0,family:0.7}
+  },
+  {
+    id:'shimokitazawa',face:'🎸',name:'下北沢人',nameEn:'SHIMOKITAZAWA',
+    color:'#7b3fa0',
+    image:'images/shimokitazawa.png', area:'下北沢',
+    catch:'ライブハウスと古着屋が家より落ち着く',
+    tagline:'文化消費を生き方にしている人',
+    quote:'「今夜も知らないバンドのライブに行く。きっとまた好きになる。それでいい。」',
+    desc:'音楽・映画・演劇・古着……文化を生きることと等号で結ぶタイプ。流行には乗らず、自分の好きなものを深掘りし続ける。月に5本以上ライブに行き、古着のコーデが秀逸。夜型かつ一匹狼気質。「好き」に対してだけ全力になれる人。',
+    traits:{'サブカル愛':98,'自由度':92,'音楽感度':95,'規則正しさ':22,'コスパ感':75},
+    aruaru:[
+      {ico:'🎸',t:'月に5本以上ライブに行っている'},
+      {ico:'👗',t:'古着のコーデを「これ300円」と自慢する'},
+      {ico:'🍺',t:'ライブ後の一杯が一番うまいと知っている'},
+      {ico:'🎬',t:'映画館でも一人で行ける派'},
+    ],
+    stats:{rent:'8〜13万',access:'渋谷15分',park:'北沢川緑道🌿',pop:'学生・アーティスト'},
+    good:{e:'🍺',name:'三軒茶屋人',d:'ライブ帰りに合流できる最高の仲間'},
+    bad:{e:'💼',name:'丸の内人',d:'存在を認識し合っていない'},
+    tags:['ライブ','古着','サブカル','自由','夜型'],
+    spots:[{ico:'🎸',name:'下北沢SHELTER',desc:'老舗ライブハウス、ロックの聖地'},{ico:'👗',name:'シモキタ古着屋街',desc:'ハイセンスな古着店が点在'},{ico:'🎬',name:'トリウッド',desc:'インディー映画好きの隠れ家'}],
+    ideal:{friday_night:-2,new_shop:-2,weekend_morning:2,trouble_alone:2,money_use:-2,decision_basis:-2,core_need:-1,community_depth:1,coffee_style:1,crowded:0,praise:0,irritation:2,new_hobby:2,room_state:2,social_style:0,decision_speed:-1,future_vision:0,stress_escape:2,belonging:2},
+    lifeAffinity:{student:1.0,worker:0.9,couple:0.6,family:0.3}
+  },
+  {
+    id:'sangenjaya',face:'🍺',name:'三軒茶屋人',nameEn:'SANGENJAYA',
+    color:'#e05500',
+    image:'images/sangenjaya.png', area:'三軒茶屋',
+    catch:'三角地帯が第二のリビング',
+    tagline:'飾らない人懐っこさと夜の街を愛する人',
+    quote:'「三角地帯で飲んでたら友達が10人増えた。終電？もう行ってますよ。」',
+    desc:'三角地帯（三茶の飲み屋街）が本来のリビング。知らない人とも気づいたら仲良くなっている人懐っこさが武器。コスパへのこだわりは強いが、楽しいことには惜しまない。「飾らなさ」こそが最大の個性。',
+    traits:{'飲み力':98,'コスパ感':90,'人懐っこさ':88,'洗練度':40,'朝型度':15},
+    aruaru:[
+      {ico:'🍻',t:'「一杯だけ」が必ず三杯になる'},
+      {ico:'🎸',t:'下北のライブ帰りに三茶で飲みなおすのがルーティン'},
+      {ico:'💤',t:'休日の朝は12時より前に起きない'},
+      {ico:'🤝',t:'三角地帯で知らない人と仲良くなった経験が複数回ある'},
+    ],
+    stats:{rent:'8〜13万',access:'渋谷12分',park:'世田谷公園🌿',pop:'学生・20代'},
+    good:{e:'🎸',name:'下北沢人',d:'ライブ帰りに合流できる兄弟分'},
+    bad:{e:'😳',name:'白金台人',d:'キャラが違いすぎて会話が続かない'},
+    tags:['居酒屋','夜型','コスパ','賑やか','若者'],
+    spots:[{ico:'🍻',name:'三角地帯',desc:'三茶の象徴、昭和の飲み屋街'},{ico:'🌳',name:'世田谷公園',desc:'地元民が集まる憩いの公園'},{ico:'🏙️',name:'キャロットタワー',desc:'三茶のランドマーク'}],
+    ideal:{friday_night:-2,new_shop:-2,weekend_morning:2,trouble_alone:-2,money_use:-2,decision_basis:-1,core_need:-1,community_depth:-1,coffee_style:1,crowded:2,praise:-1,irritation:1,new_hobby:2,room_state:1,social_style:-2,decision_speed:-2,future_vision:-1,stress_escape:2,belonging:2},
+    lifeAffinity:{student:1.0,worker:1.0,couple:0.7,family:0.5}
+  },
+  {
+    id:'ebisu',face:'🥂',name:'恵比寿人',nameEn:'EBISU',
+    color:'#6a44b0',
+    image:'images/ebisu.png', area:'恵比寿',
+    catch:'大人の正解を全部知っている',
+    tagline:'キャリアも食事も住環境も、全てに品格を求める人',
+    quote:'「ガーデンプレイスで赤ワインを飲む夕暮れ。これが贅沢ではなく、普通だと思って生きています。」',
+    desc:'安い飲み屋には行かないが、うるさいわけでもない。ワインの知識があり、名刺の肩書きが充実している。レストランの予約は二週間前が当たり前。「大人の正解」を体現している人。',
+    traits:{'品格':95,'グルメ力':92,'洗練度':95,'コスパ感':25,'庶民感':18},
+    aruaru:[
+      {ico:'🍷',t:'レストランの予約は常に二週間前。当日は眼中にない'},
+      {ico:'🧥',t:'部屋着もそれなりにちゃんとしている'},
+      {ico:'💼',t:'名刺に書いてある肩書きが三行ある'},
+      {ico:'📰',t:'NewsPicsとWSJを毎朝チェックしてる'},
+    ],
+    stats:{rent:'14〜25万',access:'渋谷5分',park:'ガーデンプレイス🍷',pop:'30〜40代'},
+    good:{e:'📖',name:'代官山人',d:'徒歩でいける最高の隣人'},
+    bad:{e:'😅',name:'高円寺人',d:'精神的にも物理的にも別の惑星'},
+    tags:['ワイン','大人','洗練','ビジネス','グルメ'],
+    spots:[{ico:'🍷',name:'恵比寿ガーデンプレイス',desc:'大人のランドマーク'},{ico:'🍽️',name:'ジョエル・ロブション',desc:'星付きフレンチの殿堂'},{ico:'🍺',name:'ヱビスビール記念館',desc:'ヱビスビール発祥の地'}],
+    ideal:{friday_night:-1,new_shop:1,weekend_morning:-1,trouble_alone:-1,money_use:-2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:-1,crowded:-1,praise:-2,irritation:-1,new_hobby:-1,room_state:-1,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:1},
+    lifeAffinity:{student:0.3,worker:1.0,couple:1.0,family:0.7}
+  },
+  {
+    id:'koenji',face:'🎺',name:'高円寺人',nameEn:'KOENJI',
+    color:'#c0392b',
+    image:'images/koenji.png', area:'高円寺',
+    catch:'東京でいちばん東京っぽくない街の住人',
+    tagline:'自由・個性・反骨心を体現する人',
+    quote:'「高円寺には空気がある。あの独特の空気。それを吸いに、みんなここに来る。」',
+    desc:'チェーン店より個人店、有名より無名、新しいより古い。昼から飲める店を知りすぎており、阿波踊りの季節を一年で最も誇らしく思う。「普通」が最も苦手な言葉。',
+    traits:{'自由度':95,'サブカル愛':90,'コスパ感':88,'規則正しさ':18,'個性':95},
+    aruaru:[
+      {ico:'🎺',t:'ジャズやレゲエが流れる路上に自然と足が止まる'},
+      {ico:'👗',t:'古着のセンスが良すぎて友達に服を選ばされる'},
+      {ico:'🍺',t:'昼から飲める店を知りすぎている'},
+      {ico:'📻',t:'阿波踊りの季節は街ごと祭りになるのを誇りに思っている'},
+    ],
+    stats:{rent:'7〜12万',access:'新宿15分',park:'善福寺公園🌿',pop:'アーティスト・フリーター'},
+    good:{e:'📚',name:'阿佐ヶ谷人',d:'中央線の同志、歩いていける距離'},
+    bad:{e:'🥂',name:'恵比寿人',d:'お互い「なんか違う」と感じている'},
+    tags:['古着','自由','サブカル','昼飲み','阿波踊り'],
+    spots:[{ico:'🎺',name:'高円寺純情商店街',desc:'昭和レトロな活気ある商店街'},{ico:'👗',name:'コーエンジ古着屋街',desc:'東京有数の古着文化の中心'},{ico:'🍶',name:'高円寺阿波おどり',desc:'毎年8月の一大イベント'}],
+    ideal:{friday_night:-1,new_shop:-2,weekend_morning:2,trouble_alone:0,money_use:-2,decision_basis:-2,core_need:-1,community_depth:-1,coffee_style:1,crowded:0,praise:0,irritation:2,new_hobby:2,room_state:2,social_style:-1,decision_speed:-2,future_vision:1,stress_escape:2,belonging:2},
+    lifeAffinity:{student:1.0,worker:0.9,couple:0.7,family:0.4}
+  },
+  {
+    id:'asagaya',face:'📚',name:'阿佐ヶ谷人',nameEn:'ASAGAYA',
+    color:'#2b7a6b',
+    image:'images/asagaya.png', area:'阿佐ヶ谷',
+    catch:'急がない。それが人生の正解だと知っている',
+    tagline:'穏やかで文化的な生活を好むのんびり屋',
+    quote:'「七夕の飾りを眺めながら、古本屋で500円の文庫を買う。それで十分幸せです。」',
+    desc:'急がないことを美徳とし、古本・ジャズ・純喫茶を愛する。七夕まつりを毎年楽しみにしており、近所の顔見知りが多い。「のんびり」を「だらしない」と混同しない、文化的な生活者。',
+    traits:{'文化度':92,'のんびり感':95,'コスパ感':82,'都会感':38,'隠れ家力':88},
+    aruaru:[
+      {ico:'📖',t:'電車の中では必ず文庫本を読んでいる'},
+      {ico:'🎷',t:'近所の小さなジャズバーに常連扱いされている'},
+      {ico:'🧸',t:'古道具屋で「これいつか使えそう」と買って積む'},
+      {ico:'☕',t:'チェーンより純喫茶のミルクコーヒーを選ぶ'},
+    ],
+    stats:{rent:'7〜12万',access:'新宿18分',park:'善福寺川🌿',pop:'文化系・ファミリー'},
+    good:{e:'🎺',name:'高円寺人',d:'サブカルの兄弟分、話が合う'},
+    bad:{e:'🌊',name:'豊洲人',d:'新しすぎて落ち着かない'},
+    tags:['純喫茶','古本','ジャズ','商店街','のんびり'],
+    spots:[{ico:'🎋',name:'阿佐谷七夕まつり',desc:'毎年8月の風物詩'},{ico:'🎷',name:'阿佐ヶ谷ジャズストリート',desc:'街中に音楽が溢れる秋イベント'},{ico:'📚',name:'書楽',desc:'地元に愛される老舗書店'}],
+    ideal:{friday_night:2,new_shop:0,weekend_morning:2,trouble_alone:1,money_use:-2,decision_basis:-2,core_need:2,community_depth:-1,coffee_style:0,crowded:-2,praise:1,irritation:2,new_hobby:-1,room_state:0,social_style:1,decision_speed:2,future_vision:2,stress_escape:0,belonging:-2},
+    lifeAffinity:{student:0.8,worker:0.8,couple:0.9,family:1.0}
+  },
+  {
+    id:'kuramae',face:'🧵',name:'蔵前人',nameEn:'KURAMAE',
+    color:'#1e9e7a',
+    image:'images/kuramae.png', area:'蔵前',
+    catch:'革財布を自作してコーヒーを焙煎する',
+    tagline:'手仕事・クラフト・独立系を愛するDIY精神の持ち主',
+    quote:'「浅草の隣でコーヒーを焙煎しながら、自分で縫った革財布に小銭を入れる。そういう生活が好きです。」',
+    desc:'DIY精神が高く既製品より自分で作るものに愛着を感じる。「東京のブルックリン」と呼ばれる蔵前に自然体でフィットする。AmazonよりZINEや実店舗を好み、コーヒーの産地と精製方法をすらすら語れる。',
+    traits:{'クラフト魂':95,'個性':92,'こだわり':92,'利便性重視':45,'大衆迎合':10},
+    aruaru:[
+      {ico:'🔨',t:'「既製品より自分で作った方が愛着がある」が口癖'},
+      {ico:'☕',t:'コーヒーの産地と精製方法をすらすら語れる'},
+      {ico:'🚲',t:'自転車で隅田川沿いを流すのが週末の儀式'},
+      {ico:'📦',t:'AmazonよりZINEや実店舗を選ぶ'},
+    ],
+    stats:{rent:'8〜14万',access:'大手町15分',park:'隅田川🌊',pop:'クリエイター系'},
+    good:{e:'☕',name:'清澄白河人',d:'自転車圏内の同志、センスが近い'},
+    bad:{e:'😓',name:'六本木人',d:'価値観の軸が全然違う'},
+    tags:['クラフト','コーヒー','自転車','独立系','ハンドメイド'],
+    spots:[{ico:'☕',name:'ダンデライオン・チョコレート',desc:'クラフトチョコレートの名店'},{ico:'📔',name:'カキモリ',desc:'オーダーメイドノート専門店'},{ico:'🌊',name:'隅田川テラス',desc:'自転車散歩の特等席'}],
+    ideal:{friday_night:1,new_shop:0,weekend_morning:-1,trouble_alone:1,money_use:1,decision_basis:-1,core_need:-1,community_depth:0,coffee_style:-2,crowded:-1,praise:-1,irritation:2,new_hobby:0,room_state:2,social_style:1,decision_speed:2,future_vision:1,stress_escape:0,belonging:-1},
+    lifeAffinity:{student:0.6,worker:1.0,couple:1.0,family:0.6}
+  },
+  {
+    id:'kiyosumi',face:'☕',name:'清澄白河人',nameEn:'KIYOSUMI-SHIRAKAWA',
+    color:'#b06020',
+    image:'images/kiyosumi.png', area:'清澄白河',
+    catch:'コーヒーの産地を語れる静かな革命家',
+    tagline:'早起きしてコーヒーを淹れることが一日の始まりの人',
+    quote:'「エチオピアのナチュラルプロセス豆を挽きながら、今日の仕事の優先順位を決める。これが私の朝です。」',
+    desc:'スペシャルティコーヒーと静かなアートの世界に生きるタイプ。早起きで朝の時間を大切にし、カメラを持ち歩く。自転車移動が基本で、倉庫をリノベしたギャラリーに自然と足が向く。「革命」は声高く叫ばず、生活で表現する人。',
+    traits:{'コーヒー哲学':98,'感度':90,'静けさ':85,'社交性':62,'こだわり':90},
+    aruaru:[
+      {ico:'☕',t:'コーヒーの産地・精製方法をすらすら語れる'},
+      {ico:'🚲',t:'自転車で隅田川を渡って蔵前まで行くのが日課'},
+      {ico:'📷',t:'カメラを常に持ち歩き、街のテクスチャーを撮る'},
+      {ico:'🧘',t:'朝6時に起きて静かな時間を確保している'},
+    ],
+    stats:{rent:'8〜13万',access:'大手町15分',park:'清澄庭園🍵',pop:'クリエイター・30代'},
+    good:{e:'🧵',name:'蔵前人',d:'自転車で会える最高の同志'},
+    bad:{e:'🎰',name:'歌舞伎町人',d:'存在を認識し合っていない'},
+    tags:['コーヒー','アート','自転車','早起き','静か'],
+    spots:[{ico:'☕',name:'ブルーボトルコーヒー 清澄白河',desc:'コーヒー聖地の起点'},{ico:'🎨',name:'東京都現代美術館',desc:'現代アートの殿堂'},{ico:'🌿',name:'清澄庭園',desc:'朝散歩の定番ルート'}],
+    ideal:{friday_night:2,new_shop:1,weekend_morning:-2,trouble_alone:2,money_use:-1,decision_basis:-1,core_need:0,community_depth:1,coffee_style:-2,crowded:-2,praise:0,irritation:2,new_hobby:-1,room_state:0,social_style:2,decision_speed:2,future_vision:1,stress_escape:0,belonging:0},
+    lifeAffinity:{student:0.5,worker:1.0,couple:1.0,family:0.7}
+  },
+  {
+    id:'yanaka',face:'🐱',name:'谷中人',nameEn:'YANAKA',
+    color:'#a03820',
+    image:'images/yanaka.png', area:'谷中',
+    catch:'猫と路地と豆腐屋がまだある街の住人',
+    tagline:'昭和の下町に観光ではなく生活として愛着を持つ人',
+    quote:'「路地裏に猫がいて、豆腐屋がまだある。それだけで十分です。他に何が要るんですか。」',
+    desc:'観光としてではなく、生活として古い街を愛する。猫の名前を覚え、骨董市で掘り出し物を見つけ、谷中銀座で毎週同じものを買う。レコードプレーヤーがあり、ラジオをよく聞く。時代に逆らわず、ただ自分のペースで生きている。',
+    traits:{'昭和愛':98,'猫遭遇率':95,'文化感':88,'利便性':52,'頑固さ':85},
+    aruaru:[
+      {ico:'🐱',t:'谷中の猫の名前と顔を3匹以上把握している'},
+      {ico:'🏺',t:'骨董市で掘り出し物を見つける眼力がある'},
+      {ico:'🍡',t:'谷中銀座で毎週同じものを買う'},
+      {ico:'📻',t:'ラジオをよく聞く、またはレコードプレーヤーがある'},
+    ],
+    stats:{rent:'7〜11万',access:'上野・根津が近い',park:'谷中霊園🌿',pop:'芸術家・幅広い年代'},
+    good:{e:'🏺',name:'根津・千駄木人',d:'歩いて会える同士'},
+    bad:{e:'😶',name:'汐留人',d:'別の惑星に住んでると思っている'},
+    tags:['猫','下町','レトロ','骨董','路地裏'],
+    spots:[{ico:'🐱',name:'谷中銀座商店街',desc:'夕やけだんだんと猫の街'},{ico:'🎨',name:'SCAI THE BATHHOUSE',desc:'銭湯をリノベしたギャラリー'},{ico:'🍡',name:'岡野栄泉',desc:'老舗の豆大福'}],
+    ideal:{friday_night:2,new_shop:1,weekend_morning:0,trouble_alone:1,money_use:-1,decision_basis:-2,core_need:2,community_depth:-2,coffee_style:1,crowded:-2,praise:1,irritation:2,new_hobby:-1,room_state:2,social_style:1,decision_speed:2,future_vision:2,stress_escape:0,belonging:-2},
+    lifeAffinity:{student:0.8,worker:0.8,couple:0.9,family:1.0}
+  },
+  {
+    id:'kichijoji',face:'🌿',name:'吉祥寺人',nameEn:'KICHIJOJI',
+    color:'#2e7d32',
+    image:'images/kichijoji.png', area:'吉祥寺',
+    catch:'住みやすさの全部を持っているバランス型',
+    tagline:'全部ある街に自然体でいられるバランス感覚の人',
+    quote:'「井の頭公園でボートを漕いだあと、ハーモニカ横丁で一杯。最強の休日じゃないですか？」',
+    desc:'都会すぎず田舎すぎず、全部ある。ライブハウスにも公園にも商店街にも行く。吉祥寺が「住みたい街No.1」であることを心のどこかで誇りにしている。「バランス」は凡庸さではなく、最高の選択だと知っている人。',
+    traits:{'住みやすさ':95,'公園力':95,'バランス感':92,'尖った個性':72,'地元愛':88},
+    aruaru:[
+      {ico:'🚣',t:'井の頭公園のボートに年一は乗っている'},
+      {ico:'🎵',t:'ライブハウスに月一で通っている'},
+      {ico:'🛒',t:'商店街の八百屋でちゃんと野菜を買う'},
+      {ico:'🐈',t:'吉祥寺が「住みたい街No.1」なのを誇りに思っている'},
+    ],
+    stats:{rent:'9〜17万',access:'新宿25分',park:'井の頭公園🌊',pop:'全世代'},
+    good:{e:'🍂',name:'西荻窪人',d:'一駅の距離感がちょうどいい'},
+    bad:{e:'😳',name:'歌舞伎町人',d:'方向性が全然違う'},
+    tags:['公園','ライブ','商店街','全世代','バランス型'],
+    spots:[{ico:'🚣',name:'井の頭恩賜公園',desc:'ボート・桜・散歩の名所'},{ico:'🍻',name:'ハーモニカ横丁',desc:'昭和レトロな飲み屋街'},{ico:'🎵',name:'吉祥寺CLUB SEATA',desc:'ライブハウスの老舗'}],
+    ideal:{friday_night:0,new_shop:-1,weekend_morning:-1,trouble_alone:0,money_use:-1,decision_basis:-1,core_need:1,community_depth:-1,coffee_style:0,crowded:0,praise:0,irritation:1,new_hobby:1,room_state:1,social_style:0,decision_speed:0,future_vision:0,stress_escape:-1,belonging:-2},
+    lifeAffinity:{student:0.8,worker:0.9,couple:1.0,family:1.0}
+  },
+  {
+    id:'bunkyo',face:'🔬',name:'文京人',nameEn:'BUNKYO',
+    color:'#2c4a8e',
+    image:'images/bunkyo.png', area:'文京区',
+    catch:'静かに深く考える、東京の知的隠居',
+    tagline:'知性と静けさを最優先にして生きる人',
+    quote:'「東大のキャンパスを散歩しながら、喫茶店で論文を読む。これが普通の休日です。」',
+    desc:'東京大学・出版社・図書館が近いことに価値を感じ、本棚が3つ以上ある。子育て・教育環境への関心も高く、根津神社のつつじまつりに毎年行く。「賢さ」を誇示しない、穏やかな知識人。',
+    traits:{'知性':95,'静けさ':92,'教育意識':95,'夜遊び感':15,'読書量':92},
+    aruaru:[
+      {ico:'📚',t:'本棚が3つ以上あり、それでも足りない'},
+      {ico:'🎓',t:'東大や出版社が近所にあることを密かに誇りにしている'},
+      {ico:'☕',t:'チェーンより昔からある喫茶店を選ぶ'},
+      {ico:'🌸',t:'根津神社のつつじまつりに毎年行っている'},
+    ],
+    stats:{rent:'8〜15万',access:'大手町15分',park:'六義園🌸',pop:'研究者・ファミリー'},
+    good:{e:'📖',name:'湯島・本郷人',d:'学問の街の同士'},
+    bad:{e:'🎰',name:'池袋人',d:'価値観の軸が根本から違う'},
+    tags:['大学','読書','静か','教育','歴史'],
+    spots:[{ico:'🎓',name:'東京大学本郷キャンパス',desc:'赤門・三四郎池・安田講堂'},{ico:'🌸',name:'根津神社',desc:'つつじ祭りの名所'},{ico:'📚',name:'六義園',desc:'静かで知的な日本庭園'}],
+    ideal:{friday_night:2,new_shop:1,weekend_morning:-1,trouble_alone:1,money_use:-2,decision_basis:1,core_need:1,community_depth:-1,coffee_style:-1,crowded:-2,praise:1,irritation:1,new_hobby:-2,room_state:-1,social_style:1,decision_speed:2,future_vision:1,stress_escape:1,belonging:-2},
+    lifeAffinity:{student:1.0,worker:0.8,couple:0.9,family:1.0}
+  },
+  {
+    id:'toyosu',face:'🌊',name:'豊洲人',nameEn:'TOYOSU',
+    color:'#0277bd',
+    image:'images/toyosu.png', area:'豊洲',
+    catch:'タワマン35階から東京湾を見下ろす新人類',
+    tagline:'新しい・広い・便利を最優先にして生きる人',
+    quote:'「タワマンのエントランスで宅配を受け取り、35階から夜景を見ながら作業する。東京の最前線です。」',
+    desc:'新しい・広い・きれい・便利を最優先する湾岸ニュータウンの新人類。タワマンのラウンジで作業し、IKEAとコストコを使いこなす。共働きファミリーの新しいモデルケースでもある。',
+    traits:{'新しさ好き':95,'広さ重視':92,'利便性':82,'下町感':8,'子育て環境':88},
+    aruaru:[
+      {ico:'🏙️',t:'タワマンのラウンジで作業するのが日常になっている'},
+      {ico:'🛒',t:'IKEAとコストコに月一で行く'},
+      {ico:'🚢',t:'お台場まで自転車で行ける距離感がちょうどいい'},
+      {ico:'📦',t:'Amazonの宅配ボックスを毎日確認している'},
+    ],
+    stats:{rent:'11〜22万',access:'有楽町15分',park:'海浜公園🌊',pop:'共働きファミリー'},
+    good:{e:'🛍️',name:'お台場人',d:'海沿いの同志'},
+    bad:{e:'🐱',name:'谷中人',d:'古いもの好きとは話が噛み合わない'},
+    tags:['タワマン','海','新しい','共働き','広い'],
+    spots:[{ico:'🏪',name:'豊洲市場',desc:'新・築地の拠点'},{ico:'🛒',name:'ららぽーと豊洲',desc:'ファミリー向け巨大モール'},{ico:'🌊',name:'豊洲ぐるり公園',desc:'運河沿い絶景のランニングコース'}],
+    ideal:{friday_night:1,new_shop:2,weekend_morning:-1,trouble_alone:-1,money_use:2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:2,crowded:1,praise:-2,irritation:-2,new_hobby:-1,room_state:-2,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:-1},
+    lifeAffinity:{student:0.3,worker:0.9,couple:1.0,family:1.0}
+  },
+  {
+    id:'nerima',face:'🌻',name:'練馬人',nameEn:'NERIMA',
+    color:'#558b2f',
+    image:'images/nerima.png', area:'練馬',
+    catch:'東京の端っこで一番ゆったり生きている',
+    tagline:'都内最大の農業地帯で、急がない生き方を実践する人',
+    quote:'「畑が見える部屋で育てたトマトを食べながら、池袋まで電車で20分。これで十分です。」',
+    desc:'畑・公園・自転車・近所の付き合いを大切にし、都心まで出るのは「特別なとき」という感覚がある。子育てにも適した環境を重視。「東京だけど東京じゃない」その微妙な距離感が心地よい人。',
+    traits:{'のんびり度':95,'コスパ感':92,'自然感':85,'都会感':32,'子育て環境':92},
+    aruaru:[
+      {ico:'🌱',t:'ベランダでなにかしら育てている'},
+      {ico:'🚲',t:'自転車で15分以内に生活が完結している'},
+      {ico:'🏠',t:'都心まで出るのは「特別なとき」という感覚がある'},
+      {ico:'🌻',t:'練馬が都内屈指の農業地帯と知っていて誇らしい'},
+    ],
+    stats:{rent:'6〜10万',access:'池袋15分',park:'光が丘公園🌿',pop:'ファミリー・長期居住'},
+    good:{e:'🌿',name:'吉祥寺人',d:'自然好き同士で話が合う'},
+    bad:{e:'🥂',name:'恵比寿人',d:'価値観の中心が違いすぎる'},
+    tags:['農業','のんびり','コスパ','自然','ファミリー'],
+    spots:[{ico:'🌳',name:'光が丘公園',desc:'広大な緑のオアシス'},{ico:'🎨',name:'練馬区立美術館',desc:'企画展が評判'},{ico:'🌻',name:'区内の農業体験',desc:'都内屈指の農業地帯'}],
+    ideal:{friday_night:2,new_shop:1,weekend_morning:0,trouble_alone:1,money_use:2,decision_basis:1,core_need:2,community_depth:-2,coffee_style:2,crowded:-2,praise:1,irritation:-1,new_hobby:1,room_state:0,social_style:1,decision_speed:0,future_vision:2,stress_escape:-2,belonging:-2},
+    lifeAffinity:{student:0.6,worker:0.8,couple:0.9,family:1.0}
+  },
+  {
+    id:'shinagawa',face:'🚄',name:'品川人',nameEn:'SHINAGAWA',
+    color:'#37474f',
+    image:'images/shinagawa.png', area:'品川',
+    catch:'新幹線の乗り方が一番うまい、機能性の鬼',
+    tagline:'アクセス・効率・機能性を最優先にして動く人',
+    quote:'「品川から新幹線で大阪日帰り。それを普通だと思って生きています。時間は最大のコストです。」',
+    desc:'感性より論理、プロセスより結果、雰囲気より数字を重視する。新幹線・羽田・東海道線が揃う品川は唯一無二の拠点。出張先でも仕事を止めない。スタバのモバイルオーダーを使いこなし、乗り換えが毎回完璧な人。',
+    traits:{'機能性重視':98,'アクセス力':95,'効率思考':92,'下町感':12,'感性重視':28},
+    aruaru:[
+      {ico:'🚄',t:'新幹線の予約を乗る直前まで変更する'},
+      {ico:'📱',t:'乗り換えアプリの乗り継ぎが毎回完璧'},
+      {ico:'💼',t:'出張先でも仕事を止めない'},
+      {ico:'☕',t:'カフェではなくスタバのモバイルオーダー派'},
+    ],
+    stats:{rent:'10〜18万',access:'東京駅8分・羽田30分',park:'天王洲🌊',pop:'ビジネスパーソン'},
+    good:{e:'🏦',name:'丸の内人',d:'仕事への向き合い方が同じ'},
+    bad:{e:'🎸',name:'下北沢人',d:'効率より感性を重視する人とは話が合わない'},
+    tags:['新幹線','出張','効率','ビジネス','アクセス'],
+    spots:[{ico:'🚄',name:'品川駅',desc:'新幹線・羽田・山手線のハブ'},{ico:'🍺',name:'品川インターシティ',desc:'ビジネスパーソンの聖地'},{ico:'🌊',name:'天王洲アイル',desc:'運河沿いのおしゃれゾーン'}],
+    ideal:{friday_night:-1,new_shop:2,weekend_morning:-2,trouble_alone:-1,money_use:2,decision_basis:2,core_need:-2,community_depth:1,coffee_style:2,crowded:0,praise:-2,irritation:-2,new_hobby:-2,room_state:-1,social_style:-1,decision_speed:-2,future_vision:-2,stress_escape:1,belonging:1},
+    lifeAffinity:{student:0.3,worker:1.0,couple:0.8,family:0.6}
+  },
+  {
+    id:'hachioji',face:'🏔️',name:'八王子人',nameEn:'HACHIOJI',
+    color:'#4a6741',
+    image:'images/hachioji.png', area:'八王子',
+    catch:'山が見えないと落ち着かない、自然派東京人',
+    tagline:'東京都内でありながら山と空と広さを日常に取り入れる人',
+    quote:'「高尾山が見える。空が広い。それだけで東京に住む意味があります。」',
+    desc:'都心への電車通勤はするが帰宅すれば別世界。家賃コスパが圧倒的で広い部屋に住む。独立心が強く「東京の人と少し違う」ことを誇りにしている。週末は高尾山に行くのが当たり前の習慣になっている人。',
+    traits:{'自然愛':95,'コスパ感':95,'独立心':88,'都会感':28,'広さ重視':95},
+    aruaru:[
+      {ico:'🏔️',t:'週末は高尾山に行くのが当たり前の習慣'},
+      {ico:'🏠',t:'家賃が安くて広い部屋に住んでいることを自慢する'},
+      {ico:'🚃',t:'「都心まで1時間かかる」と言われるが本人は気にしていない'},
+      {ico:'🗺️',t:'東京都民だが「八王子は別の都市」という自意識がある'},
+    ],
+    stats:{rent:'5〜9万',access:'新宿40分（特快）',park:'高尾山・多摩川🏔️',pop:'自然好き・ファミリー'},
+    good:{e:'🌻',name:'練馬人',d:'自然好き・のんびり系の同志'},
+    bad:{e:'🥂',name:'港区人',d:'価値観の軸が根本から違う'},
+    tags:['高尾山','自然','コスパ','独立心','広い部屋'],
+    spots:[{ico:'🏔️',name:'高尾山',desc:'ミシュラン三ツ星の名山'},{ico:'🌸',name:'陣馬山',desc:'ハイキングの隠れた名所'},{ico:'🎡',name:'東京サマーランド',desc:'夏のお楽しみスポット'}],
+    ideal:{friday_night:1,new_shop:0,weekend_morning:-2,trouble_alone:1,money_use:2,decision_basis:1,core_need:2,community_depth:-1,coffee_style:1,crowded:-2,praise:0,irritation:-1,new_hobby:2,room_state:0,social_style:1,decision_speed:1,future_vision:2,stress_escape:-2,belonging:-1},
+    lifeAffinity:{student:0.7,worker:0.7,couple:0.9,family:1.0}
+  },
+];
+
+// ══════════════════════════════════════════════
+// ライフステージ連動：おすすめの部屋探し条件
+// ══════════════════════════════════════════════
+const LIFE_RECO = {
+  student: {
+    label:'学生・一人暮らし',
+    items:[
+      {ico:'🏠', label:'ワンルーム・1K（25〜30㎡）'},
+      {ico:'📚', label:'大学・図書館徒歩圏'},
+      {ico:'🍜', label:'学食・定食屋が近い'},
+      {ico:'💴', label:'家賃5〜8万円目安'},
+    ]
+  },
+  worker: {
+    label:'一人暮らし社会人',
+    items:[
+      {ico:'🏠', label:'1DK・1LDK（30〜45㎡）'},
+      {ico:'🚃', label:'通勤30分圏の駅近'},
+      {ico:'☕', label:'在宅ワーク可の環境'},
+      {ico:'💴', label:'家賃10〜15万円目安'},
+    ]
+  },
+  couple: {
+    label:'カップル・同棲',
+    items:[
+      {ico:'🏠', label:'1LDK・2DK（45〜60㎡）'},
+      {ico:'🛒', label:'スーパー・商店街が徒歩圏'},
+      {ico:'🌳', label:'週末歩ける公園・川沿い'},
+      {ico:'💴', label:'家賃15〜22万円目安'},
+    ]
+  },
+  family: {
+    label:'ファミリー',
+    items:[
+      {ico:'🏠', label:'2LDK・3LDK以上（60〜80㎡）'},
+      {ico:'🏫', label:'保育園・小学校の評判'},
+      {ico:'🌳', label:'公園・児童館・図書館'},
+      {ico:'💴', label:'家賃18〜30万円目安'},
+    ]
+  },
+};
+
+// ══════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════
+let step=0, ans={};
+let sessionStartTime = null;   // 診断開始時刻
+let sessionId = null;           // セッション識別ID
+let questionTimings = {};       // 各質問の回答時刻
+let lastQuestionShownAt = null; // 直前の質問表示時刻
+
+// ══════════════════════════════════════════════
+// 📊 DATA TRACKING — Google Sheets連携
+// ══════════════════════════════════════════════
+// Apps Script のWeb App URLをここに設定する
+// デプロイ後、スプレッドシート側のApps ScriptでURLを発行し、以下に貼り付ける
+const TRACKING_ENDPOINT = ''; // 例: 'https://script.google.com/macros/s/AKfycby.../exec'
+
+// ユーザーID生成（localStorage、初回訪問時に発行して永続化）
+function getUserId(){
+  try {
+    let uid = localStorage.getItem('tokyo_match_uid');
+    if(!uid){
+      uid = 'u_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2,10);
+      localStorage.setItem('tokyo_match_uid', uid);
+    }
+    return uid;
+  } catch(e){ return 'u_anon_' + Date.now(); }
+}
+
+// 短期間の連投判定（直近5分以内の同一UIDは重複フラグ）
+function isDuplicateSession(){
+  try {
+    const lastCompletedAt = parseInt(localStorage.getItem('tokyo_match_last_completed') || '0');
+    const now = Date.now();
+    return (now - lastCompletedAt) < 5 * 60 * 1000; // 5分以内
+  } catch(e){ return false; }
+}
+
+// セッション完了時に記録
+function markSessionCompleted(){
+  try {
+    localStorage.setItem('tokyo_match_last_completed', Date.now().toString());
+    const count = parseInt(localStorage.getItem('tokyo_match_complete_count') || '0') + 1;
+    localStorage.setItem('tokyo_match_complete_count', count.toString());
+  } catch(e){}
+}
+
+// データ送信（結果表示後に非同期で実行）
+function sendAnalytics(resultData){
+  if(!TRACKING_ENDPOINT){
+    // 未設定時は localStorage にのみ蓄積（開発時・デバッグ用）
+    console.log('[Tracking] Endpoint未設定。localStorageに保存します:', resultData);
+    try {
+      const history = JSON.parse(localStorage.getItem('tokyo_match_history') || '[]');
+      history.push(resultData);
+      localStorage.setItem('tokyo_match_history', JSON.stringify(history.slice(-20))); // 直近20件保持
+    } catch(e){}
+    return;
+  }
+  // 本番：Google Sheetsへ送信（no-corsモード：結果を待たない fire-and-forget）
+  try {
+    fetch(TRACKING_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // CORS回避のため
+      body: JSON.stringify(resultData),
+    }).catch(err=>console.warn('[Tracking] 送信失敗:', err));
+  } catch(e){
+    console.warn('[Tracking] 送信エラー:', e);
+  }
+}
+
+// ── TAB ──
+function showTab(tab){
+  document.getElementById('quizTab').style.display   = tab==='quiz'   ? 'block':'none';
+  document.getElementById('typesPage').style.display = tab==='types'  ? 'block':'none';
+  document.getElementById('tabQuiz').classList.toggle('active',  tab==='quiz');
+  document.getElementById('tabTypes').classList.toggle('active', tab==='types');
+  if(tab==='types') renderTypesGrid();
+}
+
+// ── START ──
+function startQuiz(){
+  document.getElementById('startScreen').style.display='none';
+  document.getElementById('progressBar').style.display='block';
+  step=0; ans={};
+  sessionStartTime = Date.now();
+  sessionId = 's_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2,8);
+  questionTimings = {};
+  lastQuestionShownAt = Date.now();
+  renderQ();
+}
+
+// ── QUESTION ──
+// 5段階スケール: -2 (完全A), -1 (A寄り), 0 (どちらも), 1 (B寄り), 2 (完全B)
+const SCALE_LABELS = ['完全にA', 'Aに近い', 'どちらも', 'Bに近い', '完全にB'];
+
+function renderQ(){
+  const q=Qs[step], total=Qs.length;
+  lastQuestionShownAt = Date.now();
+  document.getElementById('progFill').style.width=Math.round(step/total*100)+'%';
+  document.getElementById('progFrac').textContent=`${step+1} / ${total}`;
+
+  const last = step === total-1;
+  const currentVal = ans[q.id];
+  const hasAnswer = currentVal !== undefined;
+
+  // ライフステージ（最終問のみ従来型4択）
+  if(q.isLifestyle){
+    const opts = q.opts.map(o=>`
+      <button class="opt ${currentVal===o.val?'on':''}" onclick="pickLifestyle('${q.id}','${o.val}',this)">
+        <span class="opt-ico">${o.ico}</span>
+        <div class="opt-main">${o.main}</div>
+        <div class="opt-sub">${o.sub}</div>
+      </button>`).join('');
+    document.getElementById('questionArea').innerHTML=`
+      <div class="q-card">
+        <div class="q-num">Q${step+1} / ${total}</div>
+        <div class="q-cat">${q.cat}</div>
+        <div class="q-text">${q.text}</div>
+        <div class="opts g2">${opts}</div>
+        <div class="nav">
+          <button class="btn-bk" onclick="goBack()" style="${step===0?'visibility:hidden':''}">← 戻る</button>
+          <button class="btn-nx" id="btnNx" onclick="goNext()" ${!hasAnswer?'disabled':''}>
+            ${last?'判定する 🎉':'次の質問へ →'}
+          </button>
+        </div>
+      </div>`;
+    return;
+  }
+
+  // 2択×5段階スライダー
+  const sliderVal = hasAnswer ? currentVal : null;
+  const dotActiveClass = (v)=> sliderVal===v ? 'slider-dot active' : 'slider-dot';
+
+  document.getElementById('questionArea').innerHTML=`
+    <div class="q-card">
+      <div class="q-num">Q${step+1} / ${total}</div>
+      <div class="q-cat">${q.cat}</div>
+      <div class="q-text">${q.text}</div>
+
+      <div class="mbti-pair">
+        <div class="mbti-side side-a ${sliderVal!==null && sliderVal<0 ? 'active-side' : ''}">
+          <span class="side-ico">${q.A.ico}</span>
+          <div class="side-label">${q.A.label}</div>
+          <div class="side-sub">${q.A.sub}</div>
+        </div>
+        <div class="mbti-vs">VS</div>
+        <div class="mbti-side side-b ${sliderVal!==null && sliderVal>0 ? 'active-side' : ''}">
+          <span class="side-ico">${q.B.ico}</span>
+          <div class="side-label">${q.B.label}</div>
+          <div class="side-sub">${q.B.sub}</div>
+        </div>
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-track">
+          <div class="slider-line"></div>
+          ${[-2,-1,0,1,2].map(v=>`
+            <button class="${dotActiveClass(v)}" data-val="${v}" onclick="pickSlider('${q.id}',${v})" aria-label="${SCALE_LABELS[v+2]}">
+              <span class="dot-inner"></span>
+            </button>`).join('')}
+        </div>
+        <div class="slider-labels">
+          <span class="${sliderVal===-2?'active':''}">完全にA</span>
+          <span class="${sliderVal===-1?'active':''}">Aに近い</span>
+          <span class="${sliderVal===0?'active':''}">どちらも</span>
+          <span class="${sliderVal===1?'active':''}">Bに近い</span>
+          <span class="${sliderVal===2?'active':''}">完全にB</span>
+        </div>
+      </div>
+
+      <div class="nav">
+        <button class="btn-bk" onclick="goBack()" style="${step===0?'visibility:hidden':''}">← 戻る</button>
+        <button class="btn-nx" id="btnNx" onclick="goNext()" ${!hasAnswer?'disabled':''}>
+          ${last?'判定する 🎉':'次の質問へ →'}
+        </button>
+      </div>
+    </div>`;
+}
+
+function pickSlider(qid, val){
+  const wasAnswered = ans[qid] !== undefined;
+  ans[qid] = val;
+  // 回答所要時間を記録（ミリ秒）
+  if(!wasAnswered && lastQuestionShownAt){
+    questionTimings[qid] = Date.now() - lastQuestionShownAt;
+  }
+  // 既選択の変更時は静かに更新、初回選択時はオートで次へ
+  if(wasAnswered){
+    renderQ();
+  } else {
+    renderQ();
+    setTimeout(()=>autoAdvance(), 420);
+  }
+}
+
+function pickLifestyle(qid, val, el){
+  const wasAnswered = ans[qid] !== undefined;
+  ans[qid] = val;
+  if(!wasAnswered && lastQuestionShownAt){
+    questionTimings[qid] = Date.now() - lastQuestionShownAt;
+  }
+  document.querySelectorAll('.opt').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('btnNx').removeAttribute('disabled');
+  if(!wasAnswered){
+    setTimeout(()=>autoAdvance(), 420);
+  }
+}
+
+// ── オート遷移（フェード＋次へ＋スクロール） ──
+function autoAdvance(){
+  const qArea = document.getElementById('questionArea');
+  if(!qArea) return;
+  qArea.classList.add('fading');
+  setTimeout(()=>{
+    qArea.classList.remove('fading');
+    goNext();
+    // 次の質問へスムーススクロール
+    const top = qArea.getBoundingClientRect().top + window.pageYOffset - 20;
+    window.scrollTo({top, behavior:'smooth'});
+  }, 320);
+}
+
+function goNext(){if(step<Qs.length-1){step++;renderQ();}else{showLoading();}}
+function goBack(){if(step>0){step--;renderQ();}}
+
+// ══════════════════════════════════════════════
+// キーボード操作（矢印キー＋Enter）
+// ══════════════════════════════════════════════
+// モーダルのみ Escape で閉じられるようにする（デスクトップアクセシビリティ保持）
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape'){
+    const modal = document.getElementById('modalOverlay');
+    if(modal && modal.classList.contains('open')) closeModal();
+    const pp = document.getElementById('ppOverlay');
+    if(pp && pp.classList.contains('open')) closePP();
+    const ab = document.getElementById('aboutOverlay');
+    if(ab && ab.classList.contains('open')) closeAbout();
+  }
+});
+
+// ═══ プライバシーポリシー開閉 ═══
+function openPP(){
+  document.getElementById('ppOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePP(e){
+  if(!e || e.target === document.getElementById('ppOverlay') || e.currentTarget.classList.contains('pp-close-btn')){
+    document.getElementById('ppOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// ═══ 運営者情報開閉 ═══
+function openAbout(){
+  document.getElementById('aboutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAbout(e){
+  if(!e || e.target === document.getElementById('aboutOverlay') || (e.currentTarget && e.currentTarget.classList.contains('about-close-btn'))){
+    document.getElementById('aboutOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// ── LOADING ──
+const MSGS=[
+  ['🗺️','東京を歩き回っています…'],
+  ['🚃','各エリアを調査中…'],
+  ['☕','コーヒー飲みながら考えてます…'],
+  ['🐱','猫に相談中…'],
+  ['🏔️','八王子まで行ってきます…'],
+  ['✨','あなたの「人」が決まりました！'],
+];
+let li=0;
+function showLoading(){
+  document.getElementById('questionArea').style.display='none';
+  document.getElementById('progressBar').style.display='none';
+  document.getElementById('loadingScreen').style.display='block';
+  li=0; tickLoad();
+}
+function tickLoad(){
+  if(li>=MSGS.length){compute();return;}
+  const[e,t]=MSGS[li++];
+  document.getElementById('loadIco').textContent=e;
+  document.getElementById('loadH').textContent=t;
+  setTimeout(tickLoad,li===MSGS.length?500:440);
+}
+
+// ── SCORING（5段階スライダー対応：コサイン類似度ベース） ──
+// ══════════════════════════════════════════════
+// 各質問の重み（スコアの固まり防止のため、素数中心の異なる値を設定）
+// 重み合計 ≈ 100 になるよう設計
+// ══════════════════════════════════════════════
+const Q_WEIGHTS = {
+  friday_night:    7,  // 生活シーン - 社交性の核
+  new_shop:        5,  // 生活シーン - 直感 vs 慎重
+  weekend_morning: 6,  // 生活シーン - 朝型/夜型
+  trouble_alone:   4,  // 生活シーン - 内省スタイル
+  money_use:       5,  // 価値観 - 体験 vs モノ
+  decision_basis:  6,  // 価値観 - 直感 vs 論理（重要）
+  core_need:       9,  // 価値観 - 核心（最重要）
+  community_depth: 5,  // 価値観 - コミュニティ観
+  coffee_style:    3,  // 価値観 - こだわり度
+  crowded:         6,  // 感情反応 - 混雑耐性（重要）
+  praise:          3,  // 感情反応 - 自己認識
+  irritation:      7,  // 感情反応 - 価値観の核
+  new_hobby:       4,  // 行動習慣 - 学習スタイル
+  room_state:      4,  // 行動習慣 - 美意識
+  social_style:    5,  // 行動習慣 - 社交の幅
+  decision_speed:  4,  // 行動習慣 - 意思決定
+  future_vision:   8,  // 価値観 - ライフスタイル核
+  stress_escape:   5,  // 価値観 - 回復場所
+  belonging:       6,  // 価値観 - 定住志向
+};
+
+// ══════════════════════════════════════════════
+// スコア計算（重み付き距離ベース、94や96に固まらない分散型）
+// ══════════════════════════════════════════════
+function compute(){
+  const sliderKeys = Qs.filter(q=>!q.isLifestyle).map(q=>q.id);
+
+  const scored = PEOPLE.map(p=>{
+    // 各質問に重みを掛けた距離スコア
+    let totalScore = 0;
+    let maxPossible = 0;
+    sliderKeys.forEach(k=>{
+      const weight = Q_WEIGHTS[k] || 5;
+      const ideal = p.ideal[k] || 0;
+      const user  = ans[k] !== undefined ? ans[k] : 0;
+      // 理想値と回答のマッチ度：同方向で近いほど高得点
+      // 例: ideal=-2, user=-2 → ピッタリ一致
+      //     ideal=-2, user=0  → 半分一致
+      //     ideal=-2, user=2  → 逆方向
+      const diff = Math.abs(ideal - user);      // 0〜4
+      const matchRate = (4 - diff) / 4;          // 0.0〜1.0
+      // ideal=0の質問はマッチ度を中和（どちらでも可）
+      const weightedMatch = (Math.abs(ideal) === 0)
+        ? 0.5 * weight   // 中立
+        : matchRate * weight;
+      totalScore += weightedMatch;
+      maxPossible += weight;
+    });
+    // 0〜100のスコアに正規化
+    let pts = (totalScore / maxPossible) * 100;
+
+    // ライフステージ重み（±10pt）
+    const lifeWeight = p.lifeAffinity[ans.lifestyle] !== undefined ? p.lifeAffinity[ans.lifestyle] : 0.8;
+    pts = pts * (0.85 + 0.15 * lifeWeight);
+
+    // ごく僅かな差でも順位が変わるよう、個体バラツキ係数
+    // （0.3pt程度のランダム性：同順位の出現を減らす）
+    const jitter = (hashCode(p.id + JSON.stringify(ans)) % 100) / 300;
+    pts += jitter;
+
+    return {...p, pts, rawScore: totalScore};
+  }).sort((a,b)=>b.pts-a.pts);
+
+  // 結果は自然な広がりを持たせ、2位以下も近い場合は近く表示
+  const top = scored[0].pts;
+  scored.forEach((p,i)=>{
+    // ベース：実スコアを素直に反映（60〜99）
+    let pct = Math.round(p.pts);
+    // 1位はやや高く演出（最大99%）
+    if(i === 0) pct = Math.min(Math.max(pct, 78), 99);
+    // 2位以下は実スコア反映＋順位差減衰
+    else pct = Math.max(pct - Math.floor(i * 1.5), 30);
+    p.pct = pct;
+  });
+
+  document.getElementById('loadingScreen').style.display='none';
+
+  // 📊 データ分析送信
+  const completionTimeMs = sessionStartTime ? Date.now() - sessionStartTime : 0;
+  const analyticsData = {
+    session_id: sessionId,
+    user_id: getUserId(),
+    timestamp: new Date().toISOString(),
+    completion_time_sec: Math.round(completionTimeMs / 1000),
+    is_duplicate: isDuplicateSession(),
+    total_completed_count: parseInt(localStorage.getItem('tokyo_match_complete_count') || '0') + 1,
+    // 20問の回答生データ（-2〜+2 または ライフステージ値）
+    answers: {...ans},
+    // 各質問の所要時間（ミリ秒）
+    timings: {...questionTimings},
+    // 判定結果
+    result_type: scored[0].id,
+    result_name: scored[0].name,
+    result_match_pct: scored[0].pct,
+    // 2位・3位も記録（改善分析用）
+    second_type: scored[1]?.id,
+    second_match_pct: scored[1]?.pct,
+    third_type: scored[2]?.id,
+    third_match_pct: scored[2]?.pct,
+    // ブラウザ環境情報
+    user_agent: navigator.userAgent,
+    referrer: document.referrer || '(direct)',
+    screen_size: `${window.innerWidth}x${window.innerHeight}`,
+  };
+  sendAnalytics(analyticsData);
+  markSessionCompleted();
+
+  renderResult(scored);
+}
+
+// 単純ハッシュ（jitter用）
+function hashCode(s){
+  let h = 0;
+  for(let i=0; i<s.length; i++) h = ((h<<5)-h) + s.charCodeAt(i) | 0;
+  return Math.abs(h);
+}
+
+// ══════════════════════════════════════════════
+// アフィリエイト・カード生成
+// タイプ別に最適な不動産・生活サービスを表示
+// ※ href は各ASP（A8.net / バリューコマース等）で発行したURLに差し替えてください
+// ══════════════════════════════════════════════
+const AFFILI_CONFIG = {
+  premium: ['nakameguro','daikanyama','ebisu'],
+  subcul:  ['shimokitazawa','koenji','asagaya','yanaka','kuramae'],
+  craft:   ['kiyosumi','kuramae'],
+  family:  ['kichijoji','nerima','hachioji','bunkyo','toyosu'],
+  business:['shinagawa','ebisu','toyosu'],
+};
+
+const AFFILI_CARDS = {
+  suumo:{
+    ico:'🏠', name:'SUUMO',
+    desc:'日本最大の不動産サイト。エリア・間取りから絞り込み検索',
+    cta:'物件を探す →', color:'#1d7a5f',
+    href:'https://suumo.jp/', // TODO: アフィリエイトURLに変更
+  },
+  homes:{
+    ico:'🏡', name:'LIFULL HOME\'S',
+    desc:'全国の賃貸・売買物件。無料で一括資料請求可能',
+    cta:'資料請求する →', color:'#d4380d',
+    href:'https://www.homes.co.jp/', // TODO: アフィリエイトURLに変更
+  },
+  chintai:{
+    ico:'🔑', name:'CHINTAI',
+    desc:'こだわり条件の賃貸物件。フリーレント・女性向け多数',
+    cta:'こだわり検索 →', color:'#7b3fa0',
+    href:'https://www.chintai.net/', // TODO: アフィリエイトURLに変更
+  },
+  goodroom:{
+    ico:'✨', name:'goodroom',
+    desc:'デザイナーズ・リノベ物件に特化。おしゃれな部屋探しなら',
+    cta:'物件を見る →', color:'#b5651d',
+    href:'https://www.goodroom.jp/', // TODO: アフィリエイトURLに変更
+  },
+  akiya:{
+    ico:'🏚️', name:'東京R不動産',
+    desc:'個性的な古民家・リノベ物件を厳選。こだわり派のための物件探し',
+    cta:'物件を見る →', color:'#2b7a6b',
+    href:'https://www.realtokyoestate.co.jp/',
+  },
+  athome:{
+    ico:'🗺️', name:'at home',
+    desc:'地図から探す物件検索。駅・エリアの周辺環境も確認できる',
+    cta:'地図で探す →', color:'#c0392b',
+    href:'https://www.athome.co.jp/', // TODO: アフィリエイトURLに変更
+  },
+};
+
+function buildAffiliCards(m){
+  let cards = [];
+  const id = m.id;
+  if(AFFILI_CONFIG.premium.includes(id))       cards = [AFFILI_CARDS.goodroom, AFFILI_CARDS.suumo];
+  else if(AFFILI_CONFIG.subcul.includes(id))   cards = [AFFILI_CARDS.akiya, AFFILI_CARDS.chintai];
+  else if(AFFILI_CONFIG.family.includes(id))   cards = [AFFILI_CARDS.homes, AFFILI_CARDS.suumo];
+  else if(AFFILI_CONFIG.business.includes(id)) cards = [AFFILI_CARDS.suumo, AFFILI_CARDS.athome];
+  else                                          cards = [AFFILI_CARDS.suumo, AFFILI_CARDS.chintai];
+
+  return cards.map(c=>`
+    <a class="affili-card" href="${c.href}" target="_blank" rel="noopener sponsored"
+      style="--ac:${c.color}" onclick="trackAffili('${c.name}','${m.name}')">
+      <span class="affili-ico">${c.ico}</span>
+      <div class="affili-body">
+        <div class="affili-name">${c.name}<span class="affili-badge">PR</span></div>
+        <div class="affili-desc">${c.desc}</div>
+      </div>
+      <span class="affili-cta">${c.cta}</span>
+    </a>`).join('');
+}
+
+// アフィリエイトクリック計測
+function trackAffili(service, typeName){
+  if(typeof gtag !== 'undefined'){
+    gtag('event','affili_click',{event_category:'monetize',event_label:service,value:typeName});
+  }
+}
+
+// ── SHARE ──
+function buildShareText(m){
+  return `🗼 東京人診断の結果\n\nあなたは「${m.name}」です！\n${m.catch}\n\nマッチ率 ${m.pct}%\n\n#東京人診断 #${m.name}`;
+}
+function shareX(text){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank')}
+function copyText(text,btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='✓ コピーしました！';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 テキストをコピー';btn.classList.remove('copied');},2200);
+  });
+}
+
+// ── RESULT ──
+function renderResult(sorted){
+  const m=sorted[0], alts=sorted.slice(1,4);
+  const shareText=buildShareText(m);
+  const bg=m.color+'14';
+  const grad1=m.color+'30';
+  const grad2=m.color+'18';
+
+  // 動的OGP更新
+  updateOGP(m);
+
+  const traitHtml=Object.entries(m.traits).map(([k,v])=>`
+    <div class="rbar-row">
+      <div class="rbar-meta"><span>${k}</span><span style="color:${m.color}">${v}</span></div>
+      <div class="rbar-track"><div class="rbar-fill" style="width:${v}%;background:linear-gradient(90deg,${m.color},${m.color}88)"></div></div>
+    </div>`).join('');
+
+  const aruHtml=m.aruaru.map(a=>`
+    <div class="ar-item"><span class="ar-ico">${a.ico}</span><span>${a.t}</span></div>`).join('');
+
+  const tagHtml=m.tags.map(t=>`
+    <span class="htag" style="color:${m.color};border-color:${m.color}44;background:${bg}">#${t}</span>`).join('');
+
+  const altHtml=alts.map((p,i)=>`
+    <div class="alt-row">
+      <div class="alt-rank" style="color:${p.color}">#${i+2}</div>
+      <div class="alt-face">${p.face}</div>
+      <div class="alt-info"><div class="alt-nm">${p.name}</div><div class="alt-tp">${p.catch}</div></div>
+      <div class="alt-pct" style="color:${p.color}">${p.pct}%</div>
+    </div>`).join('');
+
+  // ヒーロー背景のCSS変数
+  const heroStyle = `--heroBg:${bg};--heroGrad1:${grad1};--heroGrad2:${grad2};--heroBorder:${m.color}55;`;
+
+  document.getElementById('resultScreen').innerHTML=`
+  <div class="result-intro">
+    <div class="result-kicker">RESULT — あなたの「人」が決まりました</div>
+    <div class="result-headline">あなたは<br><span style="color:${m.color}">${m.name}</span>！</div>
+  </div>
+
+  <div class="hero" style="${heroStyle}">
+    <div class="hero-top">
+      <div class="hero-badge" style="color:${m.color};border-color:${m.color}">MATCH ${m.pct}%</div>
+      <div id="heroCharaHost"></div>
+      <div class="hero-eyebrow">あなたは…</div>
+      <div class="hero-name" style="color:${m.color}">${m.name}</div>
+      <div class="hero-en">${m.nameEn} — ${m.tagline}</div>
+      <div class="hero-catch" style="border-left-color:${m.color}">${m.quote}</div>
+    </div>
+    <div class="hero-tags">${tagHtml}</div>
+    <div class="stats-strip">
+      <div class="st-cell"><div class="st-v" style="color:${m.color}">${m.stats.rent}</div><div class="st-k">家賃目安</div></div>
+      <div class="st-cell"><div class="st-v" style="color:${m.color};font-size:11px">${m.stats.access}</div><div class="st-k">アクセス</div></div>
+      <div class="st-cell"><div class="st-v" style="color:${m.color};font-size:11px">${m.stats.park}</div><div class="st-k">自然・公園</div></div>
+      <div class="st-cell"><div class="st-v" style="color:${m.color};font-size:11px">${m.stats.pop}</div><div class="st-k">多い層</div></div>
+    </div>
+  </div>
+
+  <!-- 人物像 -->
+  <div class="rsec">
+    <div class="rsec-hd"><span>🧬</span>${m.name}とはどんな人か</div>
+    <p style="font-size:13px;line-height:2;color:var(--ink)">${m.desc}</p>
+  </div>
+
+  <!-- シェア -->
+  <div class="share-box">
+    <div class="share-hd"><span>🔗</span>結果をシェアする</div>
+    <div class="share-preview" id="sharePreview">${shareText}</div>
+    <div class="share-btns">
+      <button class="btn-share btn-x" onclick="shareX(document.getElementById('sharePreview').textContent)">
+        <span style="font-size:15px;font-weight:900">𝕏</span> Xでシェア
+      </button>
+      <button class="btn-share btn-copy" id="copyBtn" onclick="copyText(document.getElementById('sharePreview').textContent,this)">
+        📋 テキストをコピー
+      </button>
+    </div>
+  </div>
+
+  <!-- ステータス -->
+  <div class="rsec">
+    <div class="rsec-hd"><span>📊</span>${m.name}のステータス</div>
+    ${traitHtml}
+  </div>
+
+  <!-- あるある -->
+  <div class="rsec">
+    <div class="rsec-hd"><span>💬</span>${m.name}あるある</div>
+    <div class="aruaru-result">${aruHtml}</div>
+  </div>
+
+  <!-- ■ 広告スロット①（あるある〜相性の間） -->
+  <!-- AdSense有効化後: ad-slotクラスにad-activeを追加しinsスタグを差し込む -->
+  <div class="ad-slot" id="adSlot1">
+    <span class="ad-slot-label">ADVERTISEMENT</span>
+  </div>
+
+  <!-- アフィリエイトセクション（タイプ連動） -->
+  <div class="affili-section">
+    <div class="affili-head">SPONSORED</div>
+    <div class="affili-cards">
+      ${buildAffiliCards(m)}
+    </div>
+  </div>
+
+  <!-- 相性 -->
+  <div class="rsec">
+    <div class="rsec-hd"><span>💘</span>相性の「人」</div>
+    <div class="compat-r">
+      <div class="cb good">
+        <span class="cb-e">${m.good.e}</span>
+        <div class="cb-n">${m.good.name}</div>
+        <div class="cb-d">◎ ${m.good.d}</div>
+      </div>
+      <div class="cb clash">
+        <span class="cb-e">${m.bad.e}</span>
+        <div class="cb-n">${m.bad.name}</div>
+        <div class="cb-d">△ ${m.bad.d}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 惜しかった -->
+  <div class="rsec">
+    <div class="rsec-hd"><span>🏙️</span>惜しかった「人」たち</div>
+    <div class="alt-list">${altHtml}</div>
+  </div>
+
+  <!-- ■ 広告スロット②（最下部・再診断ボタン上） -->
+  <div class="ad-slot" id="adSlot2">
+    <span class="ad-slot-label">ADVERTISEMENT</span>
+  </div>
+
+  <button class="btn-retry" onclick="restart()">↺ もう一度診断する</button>
+  <p style="text-align:center;font-size:10.5px;color:var(--muted);margin-top:14px;line-height:1.8">
+    本診断への回答は統計目的で収集・分析されます。<br>
+    <a onclick="openPP()" style="color:var(--muted);text-decoration:underline;cursor:pointer">プライバシーポリシー</a>をご確認ください。
+  </p>`;
+
+  // ── キャラクター画像の挿入（プレースホルダー機構） ──
+  // /images/{id}.png を配置すると自動反映、なければ絵文字フォールバック
+  const charaHost = document.getElementById('heroCharaHost');
+  if(charaHost){
+    const wrap = document.createElement('div');
+    wrap.className = 'hero-chara';
+    const fallback = document.createElement('span');
+    fallback.className = 'hero-chara-fallback';
+    fallback.setAttribute('aria-hidden', 'true');
+    fallback.textContent = m.face;
+    wrap.appendChild(fallback);
+    if(m.image){
+      const img = document.createElement('img');
+      img.alt = m.name + 'のキャラクターイラスト';
+      img.loading = 'lazy';
+      img.style.position = 'absolute';
+      img.style.inset = '0';
+      img.style.opacity = '0';
+      img.style.transition = 'opacity .4s';
+      img.onload = ()=>{ img.style.opacity='1'; fallback.style.display='none'; };
+      img.onerror = ()=>{ img.remove(); };
+      img.src = m.image;
+      wrap.appendChild(img);
+    }
+    charaHost.appendChild(wrap);
+  }
+
+  document.getElementById('resultScreen').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── 動的OGP更新 ──
+function updateOGP(m){
+  const title = `私は${m.name}でした — 東京人診断`;
+  const desc = `${m.catch}（マッチ率${m.pct}%）/ あなたはどの東京に生きる人間か？20問で判定`;
+  document.title = title;
+  const set = (sel, val)=>{
+    const el = document.querySelector(sel);
+    if(el) el.setAttribute('content', val);
+  };
+  set('meta[property="og:title"]', title);
+  set('meta[property="og:description"]', desc);
+  set('meta[name="twitter:title"]', title);
+  set('meta[name="twitter:description"]', desc);
+}
+
+function restart(){
+  step=0; ans={};
+  document.getElementById('resultScreen').style.display='none';
+  document.getElementById('resultScreen').innerHTML='';
+  document.getElementById('questionArea').style.display='block';
+  document.getElementById('questionArea').innerHTML='';
+  document.getElementById('progressBar').style.display='block';
+  document.getElementById('startScreen').style.display='block';
+  // OGPを初期値に戻す
+  document.title = '東京人診断 — あなたは何人？';
+  const defaultOG = '20問のMBTI風診断で、あなたが「どの東京に生きる人間か」が分かる。';
+  const set=(sel,val)=>{ const el=document.querySelector(sel); if(el) el.setAttribute('content',val); };
+  set('meta[property="og:title"]', '東京人診断 — あなたは何人？');
+  set('meta[property="og:description"]', defaultOG);
+  set('meta[name="twitter:title"]', '東京人診断 — あなたは何人？');
+  set('meta[name="twitter:description"]', defaultOG);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ══════════════════════════════════════════════
+// TYPES PAGE
+// ══════════════════════════════════════════════
+function renderTypesGrid(){
+  const grid=document.getElementById('typesGrid');
+  if(grid.children.length>0)return;
+  PEOPLE.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='type-mini';
+    card.style.setProperty('--tc', p.color);
+    card.innerHTML=`
+      <span class="type-mini-face">${p.face}</span>
+      <div class="type-mini-name">${p.name}</div>
+      <div class="type-mini-tag">${p.catch}</div>`;
+    card.onclick=()=>openModal(p);
+    grid.appendChild(card);
+  });
+}
+
+function openModal(p){
+  const bg=p.color+'12';
+  const traitHtml=Object.entries(p.traits).map(([k,v])=>`
+    <div class="tbar-row">
+      <div class="tbar-meta"><span>${k}</span><span style="color:${p.color}">${v}</span></div>
+      <div class="tbar-track"><div class="tbar-fill" style="width:${v}%;background:${p.color}"></div></div>
+    </div>`).join('');
+
+  const aruHtml=p.aruaru.map(a=>`
+    <li><span class="ico">${a.ico}</span><span>${a.t}</span></li>`).join('');
+
+  document.getElementById('modalBox').innerHTML=`
+    <div class="modal-header" style="background:${bg}">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <span class="modal-face">${p.face}</span>
+      <div class="modal-name" style="color:${p.color}">${p.name}</div>
+      <div class="modal-en">${p.nameEn}</div>
+      <div class="modal-catch" style="border-left-color:${p.color};color:${p.color}">${p.catch}</div>
+      <div class="modal-desc">${p.desc}</div>
+      <div class="modal-quote">${p.quote}</div>
+    </div>
+    <div style="padding:20px 22px 24px">
+      <div class="sec-label">ARUARU — あるある</div>
+      <ul class="aruaru-list">${aruHtml}</ul>
+      <div class="sec-label">STATUS</div>
+      <div class="trait-bars">${traitHtml}</div>
+      <div class="sec-label">DATA</div>
+      <div class="modal-stats">
+        <div class="mstat"><div class="mstat-k">家賃目安</div><div class="mstat-v" style="color:${p.color}">${p.stats.rent}</div></div>
+        <div class="mstat"><div class="mstat-k">アクセス</div><div class="mstat-v" style="font-size:11px">${p.stats.access}</div></div>
+        <div class="mstat"><div class="mstat-k">自然・公園</div><div class="mstat-v" style="font-size:11px">${p.stats.park}</div></div>
+        <div class="mstat"><div class="mstat-k">多い層</div><div class="mstat-v" style="font-size:11px">${p.stats.pop}</div></div>
+      </div>
+      <div class="sec-label">COMPATIBILITY</div>
+      <div class="compat-row">
+        <div class="compat-box good">
+          <span class="compat-e">${p.good.e}</span>
+          <div class="compat-name">${p.good.name}</div>
+          <div class="compat-d">◎ ${p.good.d}</div>
+        </div>
+        <div class="compat-box clash">
+          <span class="compat-e">${p.bad.e}</span>
+          <div class="compat-name">${p.bad.name}</div>
+          <div class="compat-d">△ ${p.bad.d}</div>
+        </div>
+      </div>
+      <button onclick="showTab('quiz');startQuiz()" style="
+        display:block;width:100%;margin-top:18px;padding:14px;
+        background:var(--accent);color:#fff;border:none;border-radius:11px;
+        font-family:'Dela Gothic One',cursive;font-size:14px;letter-spacing:2px;
+        cursor:pointer;box-shadow:3px 3px 0 var(--ink)">
+        診断してみる →
+      </button>
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e){
+  if(!e||e.target===document.getElementById('modalOverlay'))
+    document.getElementById('modalOverlay').classList.remove('open');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modalOverlay').classList.remove('open')});
+</script>
+</body>
+</html>
