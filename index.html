@@ -2209,19 +2209,6 @@ function renderResult(sorted){
     <div class="aruaru-result">${aruHtml}</div>
   </div>
 
-  <!-- ■ 広告スロット①（あるある〜相性の間） -->
-  <!-- AdSense有効化後: ad-slotクラスにad-activeを追加しinsスタグを差し込む -->
-  <div class="ad-slot" id="adSlot1">
-    <span class="ad-slot-label">ADVERTISEMENT</span>
-  </div>
-
-  <!-- アフィリエイトセクション（タイプ連動） -->
-  <div class="affili-section">
-    <div class="affili-cards">
-      ${buildAffiliCards(m)}
-    </div>
-  </div>
-
   <!-- 相性 -->
   <div class="rsec">
     <div class="rsec-hd"><span>💘</span>相性の「人」</div>
@@ -2243,11 +2230,6 @@ function renderResult(sorted){
   <div class="rsec">
     <div class="rsec-hd"><span>🏙️</span>惜しかった「人」たち</div>
     <div class="alt-list">${altHtml}</div>
-  </div>
-
-  <!-- ■ 広告スロット②（最下部・再診断ボタン上） -->
-  <div class="ad-slot" id="adSlot2">
-    <span class="ad-slot-label">ADVERTISEMENT</span>
   </div>
 
   <button class="btn-retry" onclick="restart()">↺ もう一度診断する</button>
