@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soma-endo.github.io/tokyo-jin/sitemap.xml

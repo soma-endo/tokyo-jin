@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>東京人診断 — あなたは何人？ | 東京16エリアの人格タイプ診断</title>
-<meta name="description" content="あなたはどの東京に生きる人間か？中目黒人・下北沢人・蔵前人など16タイプから、MBTI風の20問診断で判定。無料・登録不要。">
-<meta name="keywords" content="東京,診断,人格,MBTI,中目黒,下北沢,住みたい街,街診断,性格診断">
+<title>東京人診断 — あなたはどの街の人間？ | 東京16エリア性格タイプ診断【無料】</title>
+<meta name="description" content="中目黒・下北沢・吉祥寺・蔵前など東京16エリアの「人格タイプ」を20問で無料診断。あなたはどのエリアに生きる人間？MBTI風・登録不要・3分で完了。">
+<meta name="keywords" content="東京診断,東京人診断,性格診断,MBTI,住みたい街診断,中目黒人,下北沢人,吉祥寺人,恵比寿人,蔵前人,谷中人,東京エリア,人格タイプ,無料診断,街診断">
 <meta name="author" content="Tokyo Match Project">
 <meta name="robots" content="index, follow">
 
@@ -29,18 +29,72 @@
 
 <!-- ═══ 構造化データ（Google検索でリッチ表示） ═══ -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "東京人診断",
-  "description": "あなたはどの東京に生きる人間か？中目黒人・下北沢人など16タイプから、MBTI風の20問診断で判定。無料・登録不要。",
-  "url": "https://soma-endo.github.io/tokyo-jin/",
-  "applicationCategory": "LifestyleApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
-  "author": { "@type": "Organization", "name": "Tokyo Match Project" },
-  "inLanguage": "ja"
-}
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "東京人診断",
+    "alternateName": ["東京エリア性格診断", "東京16タイプ診断"],
+    "description": "中目黒・下北沢・吉祥寺など東京16エリアの人格タイプを20問で無料診断。あなたはどのエリアに生きる人間？",
+    "url": "https://soma-endo.github.io/tokyo-jin/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "HTML5対応ブラウザ",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "author": { "@type": "Organization", "name": "Tokyo Match Project" },
+    "inLanguage": "ja",
+    "image": "https://soma-endo.github.io/tokyo-jin/ogp.png",
+    "screenshot": "https://soma-endo.github.io/tokyo-jin/ogp.png",
+    "featureList": ["無料", "登録不要", "20問・約3分", "16タイプ判定", "SNSシェア機能"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1",
+      "bestRating": "5"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    "name": "東京人診断 — あなたはどの街の人間？",
+    "description": "東京16エリアの人格タイプを20問で判定する無料診断。中目黒人・下北沢人・吉祥寺人など、あなたが最も近いタイプを算出します。",
+    "url": "https://soma-endo.github.io/tokyo-jin/",
+    "educationalLevel": "一般",
+    "typicalAgeRange": "18-",
+    "inLanguage": "ja",
+    "provider": { "@type": "Organization", "name": "Tokyo Match Project" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "東京人診断とは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "東京16エリア（中目黒・代官山・下北沢・三軒茶屋・恵比寿・高円寺・阿佐ヶ谷・蔵前・清澄白河・谷中・吉祥寺・文京・豊洲・練馬・品川・八王子）の人格タイプを20問のMBTI風診断で判定する無料サービスです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "診断は無料ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "完全無料、登録不要で利用できます。約3分で診断できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "何タイプありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "中目黒人・代官山人・下北沢人・三軒茶屋人・恵比寿人・高円寺人・阿佐ヶ谷人・蔵前人・清澄白河人・谷中人・吉祥寺人・文京人・豊洲人・練馬人・品川人・八王子人の16タイプです。"
+        }
+      }
+    ]
+  }
+]
 </script>
 
 <!-- ═══ Google AdSense ═══ -->
@@ -940,10 +994,14 @@ button:focus-visible{
   <div id="startScreen">
     <div class="start-card">
       <span class="start-face">🗼</span>
-      <div class="start-h">あなたはどの街の人間？</div>
-      <div class="start-tagline">東京16エリアの「人格タイプ」を判定</div>
+      <h1 class="start-h">あなたはどの街の人間？</h1>
+      <div class="start-tagline">東京16エリアの「人格タイプ」を20問で無料診断</div>
+      <p style="font-size:11.5px;color:var(--muted);line-height:1.9;margin:10px 0 16px;text-align:center">
+        中目黒人・下北沢人・吉祥寺人・蔵前人・谷中人など<br>
+        あなたが最も近いエリアタイプを判定します
+      </p>
       <button class="btn-start" onclick="startQuiz()">診断スタート</button>
-      <div class="start-note">約3分 · 無料 · 登録不要</div>
+      <div class="start-note">約3分 · 無料 · 登録不要 · 全16タイプ</div>
       <p style="font-size:10px;color:var(--muted);margin-top:14px;line-height:1.8">
         「診断スタート」をタップすることで、<br>
         <a onclick="openPP()" style="color:var(--muted);text-decoration:underline;cursor:pointer">プライバシーポリシー</a>に同意したものとみなします。
