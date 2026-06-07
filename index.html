@@ -2109,7 +2109,12 @@ function trackAffili(service, typeName){
 
 // ── SHARE ──
 function buildShareText(m){
-  return `🗼 東京人診断の結果\n\nあなたは「${m.name}」です！\n${m.catch}\n\nマッチ率 ${m.pct}%\n\n#東京人診断 #${m.name}`;
+  const area = m.area || m.nameEn;
+  return `🗼 東京人診断やってみた\n\n結果：「${m.name}」（マッチ率 ${m.pct}%）\n${m.catch}\n\nあなたは何人？→ https://soma-endo.github.io/tokyo-jin/\n\n#東京人診断 #${m.name} #${area}`;
+}
+function buildLineShareUrl(m){
+  const text = `🗼 東京人診断で「${m.name}」になった（マッチ率${m.pct}%）\nあなたは？→ https://soma-endo.github.io/tokyo-jin/`;
+  return 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent('https://soma-endo.github.io/tokyo-jin/') + '&text=' + encodeURIComponent(text);
 }
 function shareX(text){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text),'_blank')}
 function copyText(text,btn){
@@ -2186,13 +2191,18 @@ function renderResult(sorted){
   <!-- シェア -->
   <div class="share-box">
     <div class="share-hd"><span>🔗</span>結果をシェアする</div>
+    <p style="font-size:12px;color:var(--muted);margin:-6px 0 12px;line-height:1.7">友達と比べてみよう。相性の「人」が実際の友達と一致するかも？</p>
     <div class="share-preview" id="sharePreview">${shareText}</div>
     <div class="share-btns">
       <button class="btn-share btn-x" onclick="shareX(document.getElementById('sharePreview').textContent)">
         <span style="font-size:15px;font-weight:900">𝕏</span> Xでシェア
       </button>
+      <a class="btn-share btn-line" href="${buildLineShareUrl(m)}" target="_blank" rel="noopener"
+         style="background:#06c755;color:#fff;border-color:#06c755;box-shadow:3px 3px 0 #04a244;text-decoration:none">
+        <span style="font-size:16px;font-weight:900">L</span> LINEで送る
+      </a>
       <button class="btn-share btn-copy" id="copyBtn" onclick="copyText(document.getElementById('sharePreview').textContent,this)">
-        📋 テキストをコピー
+        📋 コピー
       </button>
     </div>
   </div>
@@ -2230,6 +2240,22 @@ function renderResult(sorted){
   <div class="rsec">
     <div class="rsec-hd"><span>🏙️</span>惜しかった「人」たち</div>
     <div class="alt-list">${altHtml}</div>
+  </div>
+
+  <!-- 友達誘導CTA -->
+  <div style="background:var(--card);border:2.5px solid var(--ink);border-radius:18px;padding:22px;margin-bottom:14px;box-shadow:4px 4px 0 var(--border);text-align:center">
+    <div style="font-family:'Dela Gothic One',cursive;font-size:13px;letter-spacing:2px;margin-bottom:10px">👥 友達は何人？</div>
+    <p style="font-size:12.5px;color:var(--muted);line-height:1.8;margin-bottom:16px">診断リンクを送って、相性の「人」が<br>実際の友達と一致するか確かめよう</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="${buildLineShareUrl(m)}" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#06c755;color:#fff;border:2px solid #06c755;border-radius:12px;font-size:13px;font-weight:700;text-decoration:none;box-shadow:3px 3px 0 #04a244">
+        <span style="font-size:16px">L</span> LINEで友達に送る
+      </a>
+      <button onclick="navigator.clipboard.writeText('https://soma-endo.github.io/tokyo-jin/').then(()=>{this.textContent='✓ コピーした！';setTimeout(()=>this.textContent='🔗 リンクをコピー',2000)})"
+         style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--light);color:var(--ink);border:2px solid var(--border);border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:3px 3px 0 var(--border)">
+        🔗 リンクをコピー
+      </button>
+    </div>
   </div>
 
   <button class="btn-retry" onclick="restart()">↺ もう一度診断する</button>
